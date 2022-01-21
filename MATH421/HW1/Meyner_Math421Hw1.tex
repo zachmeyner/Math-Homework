@@ -9,6 +9,14 @@
 \usepackage[plain]{algorithm}
 \usepackage{algpseudocode}
 \usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+
+
+\newlength{\strutheight}
+\settoheight{\strutheight}{\strut}
 
 \topmargin=-0.45in
 \evensidemargin=0in
@@ -23,9 +31,27 @@
 \date{}
 
 \begin{document}
+\setlength\extrarowheight{3pt}
 \maketitle
 \begin{enumerate}
     \item Which of the following multiplication tables defined on the set $G$ = $\{a,b,c,d\}$ form a
-    group? Support your answer in each case.
+          group? Support your answer in each case. \\
+    \begin{enumerate}
+        \item \begin{adjustbox}{valign=T,raise=\strutheight,minipage={1.0\linewidth}}
+              \begin{wrapfigure}{l}{0pt}
+              \begin{tabular}{c | c c c c}
+              $\circ$ & $a$ & $b$ & $c$ & $d$ \\
+              \cline{1-5}
+              $a$       & $a$ & $c$ & $d$ & $a$ \\
+              $b$       & $b$ & $b$ & $c$ & $d$ \\
+              $c$       & $c$ & $d$ & $a$ & $b$ \\
+              $d$       & $d$ & $a$ & $b$ & $c$ \\
+
+            \end{tabular}
+            \end{wrapfigure}
+            Closure: Every element multiplied with another gives only an element in the Set $G$. \\
+            Associative: 
+            \end{adjustbox}
+    \end{enumerate}
 \end{enumerate}
 \end{document}
