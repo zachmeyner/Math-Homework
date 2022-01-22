@@ -5,6 +5,7 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amsfonts}
+\usepackage{amssymb}
 \usepackage{tikz}
 \usepackage[plain]{algorithm}
 \usepackage{algpseudocode}
@@ -17,6 +18,8 @@
 
 \newlength{\strutheight}
 \settoheight{\strutheight}{\strut}
+\newtheorem{theorem}{Theorem}
+\renewcommand\qedsymbol{$\blacksquare$}
 
 \topmargin=-0.45in
 \evensidemargin=0in
@@ -35,7 +38,16 @@
 \maketitle
 \begin{enumerate}
     \item Which of the following multiplication tables defined on the set $G$ = $\{a,b,c,d\}$ form a
-          group? Support your answer in each case. 
+          group? Support your answer in each case.
+    \begin{theorem}
+        Let $a,b,c \in G$. Given $a$ is the Identity element of the set $G$, \\
+        then \(a \circ (b \circ c) = (a \circ b) \circ c\), \(\forall b,c \in G\).
+    \end{theorem}
+    \begin{proof}
+        Let $d \in G$ with $b \circ c = d$. Then \(a \circ (b \circ c) \implies a \circ d = d\). \\
+        We also have \((a \circ b) \circ c \implies b \circ c = d\). \\
+        \(\therefore a \circ (b \circ c) = (a \circ b) \circ c\).
+    \end{proof}
     \begin{enumerate}
         \item \begin{adjustbox}{valign=T,raise=\strutheight,minipage={1.0\linewidth}}
               \begin{wrapfigure}{l}{0pt}
@@ -54,7 +66,7 @@
             $(a\circ b) \circ c = a$,  so \\
             $a \circ (b \circ c) \neq (a \circ b) \circ c$
             \end{adjustbox}
-            \\ \\ 
+            \\ \\ \\
         \item \begin{adjustbox}{valign=T,raise=\strutheight,minipage={1.0\linewidth}}
               \begin{wrapfigure}{l}{0pt}
               \begin{tabular}{c|cccc}
@@ -70,7 +82,7 @@
             Closure: Every element in the Cayley Table is in the set $G$, so it is closed. \\
             Identity: taking any element and multiplying it by $a$ returns that element. So $a$ is the indentity element. \\
             Inverse: A diagonal is formed in the table with the identity element $a$, so every element is its own inverse. \\
-            Associative: Because $a$ is the identity element it 
+            Associative: Because $a$ is the identity element it is associative with every 
             \end{adjustbox}
     \end{enumerate}
 \end{enumerate}
