@@ -35,11 +35,11 @@
 \maketitle
 \begin{enumerate}
     \item Which of the following multiplication tables defined on the set $G$ = $\{a,b,c,d\}$ form a
-          group? Support your answer in each case. \\
+          group? Support your answer in each case. 
     \begin{enumerate}
         \item \begin{adjustbox}{valign=T,raise=\strutheight,minipage={1.0\linewidth}}
               \begin{wrapfigure}{l}{0pt}
-              \begin{tabular}{c | c c c c}
+              \begin{tabular}{c|cccc}
               $\circ$ & $a$ & $b$ & $c$ & $d$ \\
               \cline{1-5}
               $a$       & $a$ & $c$ & $d$ & $a$ \\
@@ -49,8 +49,28 @@
 
             \end{tabular}
             \end{wrapfigure}
-            Closure: Every element multiplied with another gives only an element in the Set $G$. \\
-            Associative: 
+            This Cayley Table does not form a group because it is not Associative: \\
+            $a \circ (b \circ c) = d$ and \\
+            $(a\circ b) \circ c = a$,  so \\
+            $a \circ (b \circ c) \neq (a \circ b) \circ c$
+            \end{adjustbox}
+            \\ \\ 
+        \item \begin{adjustbox}{valign=T,raise=\strutheight,minipage={1.0\linewidth}}
+              \begin{wrapfigure}{l}{0pt}
+              \begin{tabular}{c|cccc}
+              $\circ$ & $a$ & $b$ & $c$ & $d$ \\
+              \cline{1-5}
+              $a$       & $a$ & $b$ & $c$ & $d$ \\
+              $b$       & $b$ & $a$ & $d$ & $c$ \\
+              $c$       & $c$ & $d$ & $a$ & $b$ \\
+              $d$       & $d$ & $c$ & $b$ & $a$ \\
+
+            \end{tabular}
+            \end{wrapfigure}
+            Closure: Every element in the Cayley Table is in the set $G$, so it is closed. \\
+            Identity: taking any element and multiplying it by $a$ returns that element. So $a$ is the indentity element. \\
+            Inverse: A diagonal is formed in the table with the identity element $a$, so every element is its own inverse. \\
+            Associative: Because $a$ is the identity element it 
             \end{adjustbox}
     \end{enumerate}
 \end{enumerate}
