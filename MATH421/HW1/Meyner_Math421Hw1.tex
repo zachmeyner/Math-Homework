@@ -20,6 +20,7 @@
 \settoheight{\strutheight}{\strut}
 \newtheorem{theorem}{Theorem}
 \renewcommand\qedsymbol{$\blacksquare$}
+\newcommand\setitemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
 
 \topmargin=-0.45in
 \evensidemargin=0in
@@ -37,6 +38,7 @@
 \setlength\extrarowheight{3pt}
 \maketitle
 \begin{enumerate}
+  \setitemnumber{2}
     \item Which of the following multiplication tables defined on the set $G$ = $\{a,b,c,d\}$ form a
           group? Support your answer in each case.
     \begin{theorem}
@@ -120,6 +122,17 @@
             There is no inverse for $d$ where $d \circ p = a$ in this Cayley Table.
             Therefore this Cayley Table is not a Group.
             \end{adjustbox}
+            \\ \\ \\ \\ \\
     \end{enumerate}
+      \setitemnumber{13}    
+        \item Show that \(\mathbb{R}^* = \mathbb{R}\setminus \{0\} \) is a group under the operation of multiplication. \\
+        Let $a,b,c \in \mathbb{R}^*$ \\
+        Closure: Multiplying two real numbers will always return result in a real number. \\
+        Associativity: The Field Axioms of real numbers state \(a*(b*c) = (a*b)*c\), so it is Associative as well. \\
+        Identity: The multiplicative identity for $\mathbb{R}^*$ is $1$ because \(a*1=a \ \forall a \in \mathbb{R}^*\). \\
+        Inverse: The multiplicative inverse for $\mathbb{R}^*$ is $\frac{1}{a}$ because 
+        \(a*\frac{1}{a} = \frac{a*1}{a} = \frac{a}{a} = 1 \ \forall a \in \mathbb{R}^*\).
+      \setitemnumber{27}
+        \item Prove that the inverse of \(g_{1}g_{2} \dots g_{n}\) is \(g_{n}^{-1}g_{n-1}^{-1} \dots g_{1}^{-1}\).
 \end{enumerate}
 \end{document}
