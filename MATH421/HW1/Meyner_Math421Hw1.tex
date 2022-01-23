@@ -30,13 +30,13 @@
 \headsep=0.25in
 
 
-\title{Abstract Algebra Homework 1}
-\author{Zachary Meyner}
+\title{\large Abstract Algebra Homework 1}
+\author{\large Zachary Meyner}
 \date{}
 
 \begin{document}
 \maketitle
-\begin{enumerate}
+\begin{enumerate}[label=\textbf{\arabic*})]
   \setitemnumber{2}
     \item Which of the following multiplication tables defined on the set $G$ = $\{a,b,c,d\}$ form a
           group? Support your answer in each case.
@@ -62,10 +62,12 @@
 
             \end{tabular}
             \end{wrapfigure}
-            This Cayley Table does not form a group because it is not Associative: \\
-            $a \circ (b \circ c) = d$ and \\
-            $(a \circ b) \circ c = a$,  so \\
-            $a \circ (b \circ c) \neq (a \circ b) \circ c$
+            This Cayley Table does not form a group because it is not Associative: 
+            \begin{align*}
+              a \circ (b \circ c) &= d \ \text{and} \\
+              (a \circ b) \circ c &= a \\
+              \implies a \circ (b \circ c) &\neq (a \circ b) \circ c
+            \end{align*}
             \end{adjustbox}
             \\ \\ \\
         \item \begin{adjustbox}{valign=T,raise=\strutheight,minipage={1.0\linewidth}}
@@ -148,6 +150,19 @@
           =&\ g_{k+1}g_{k+1}^{-1} \\
           =&\ e
           \end{align*}
+        \end{proof}
+        \setitemnumber{31}
+        \item Show that if $a^2 = e$ for all elements in $a$ in a group $G$, then $G$ must be abelian.
+        \begin{proof}
+          Let $a,b \in G$. Consider $a \cdot b \cdot b \cdot a$. Since $a^2 = a \cdot a = e \ \forall a \in G$, and $G$ is a Group, we have
+          \begin{align*}
+            a \cdot b \cdot b \cdot a &= a \cdot (b \cdot b) \cdot a && \text{(Commutative Property)} \\
+            &= a \cdot e \cdot a && \text{(Hypothesis)} \\
+            &= a \cdot a && \text{(Identity Property)} \\
+            &= e && \text{(Hypothesis)} 
+          \end{align*}
+          But $a \cdot b$ has an inverse element of $a \cdot b$, and we have proven that $(a \cdot b) \cdot (b \cdot a) = e$, 
+          so $a \cdot b = b \cdot a \ \forall a,b \in G$. Therefore $G$ is commutative which makes it an Abelian Group.
         \end{proof}
 \end{enumerate}
 \end{document}
