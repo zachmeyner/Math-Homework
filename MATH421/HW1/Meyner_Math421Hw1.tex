@@ -140,13 +140,13 @@
           \[g_{1}g_{1}^{-1} = e\]
           Inductive Hypothesis $(n = k)$:
           \[(g_{1}g_{2} \dots g_{k})(g_{k}^{-1}g_{k-1}^{-1} \dots g_{1}^{-1}) = e \]
-          Inductive Step $(n = k + 1)$ \quad (WTS: \((g_{1}g_{2} \dots g_{k + 1})(g_{k+1}^{-1}g_{k}^{-1} \dots g_{1}^{-1}) = e \) )
+          Inductive Step $(n = k + 1)$ \quad (WTS:\@ \((g_{1}g_{2} \dots g_{k + 1})(g_{k+1}^{-1}g_{k}^{-1} \dots g_{1}^{-1}) = e \))
           \begin{align*}
           &\ (g_{1}g_{2} \dots g_{k + 1})(g_{k+1}^{-1}g_{k}^{-1} \dots g_{1}^{-1}) \\
           =&\ (g_{1}g_{2} \dots g_{k})(g_{k + 1})(g_{k+1}^{-1})(g_{k}^{-1}g_{k-1}^{-1} \dots g_{1}^{-1}) && \text{(Associative Property)}\\
           =&\ (g_{1}g_{2} \dots g_{k})(e)(g_{k}^{-1}g_{k-1}^{-1} \dots g_{1}^{-1}) && \text{(Definition)} \\
           =&\ (g_{1}g_{2} \dots g_{k})(g_{k}^{-1}g_{k-1}^{-1} \dots g_{1}^{-1}) && \text{(Definition)} \\
-          =&\ e && \text{(Inductive HypothesisS )}
+          =&\ e && \text{(Inductive Hypothesis)}
           \end{align*}
         \end{proof}
         \pagebreak
