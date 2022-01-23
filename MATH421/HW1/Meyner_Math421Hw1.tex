@@ -84,7 +84,7 @@
             Identity: taking any element and multiplying it by $a$ returns that element. So $a$ is the indentity element. \\
             Inverse: A diagonal is formed in the table with the identity element $a$, so every element is its own inverse. \\
             Associative: Because $a$ is the identity element it is associative with every set of two elements by Theorem 1. 
-            Because every element $p_{ij} = p_{ji}$ it is communtative as well, so only one permutation 
+            Because every element $p_{ij} = p_{ji}$ it is commutative as well, so only one permutation 
             of the elements $b,c,d$ needs to be tested for associativity. We have \\ 
             \((b \circ c) \circ d = a\), and \(b \circ (c \circ d) = a\), so 
             \((b \circ c) \circ d = b \circ (c \circ d)\). \\
@@ -138,8 +138,16 @@
           \[g_{1}g_{1}^{-1} = e\]
           Inductive Hypothesis $(n = k)$:
           \[(g_{1}g_{2} \dots g_{k})(g_{1}^{-1}g_{2}^{-1} \dots g_{k}^{-1}) = e \]
-          Inductive Step $(n = k + 1)$
-          \[(g_{1}g_{2} \dots g_{k + 1})(g_{1}^{-1}g_{2}^{-1} \dots g_{k + 1}^{-1}) \]
+          Inductive Step $(n = k + 1)$ \quad (WTS: \((g_{1}g_{2} \dots g_{k + 1})(g_{1}^{-1}g_{2}^{-1} \dots g_{k + 1}^{-1}) = e \) )
+          \begin{align*}
+          &\ (g_{1}g_{2} \dots g_{k + 1})(g_{1}^{-1}g_{2}^{-1} \dots g_{k + 1}^{-1}) \\
+          =&\  (g_{1}g_{2} \dots g_{k}g_{k+1})(g_{1}^{-1}g_{2}^{-1} \dots g_{k}^{-1}g_{k+1}^{-1}) \\
+          =&\ (g_{1}g_{2} \dots g_{k})(g_{k+1})(g_{1}^{-1}g_{2}^{-1} \dots g_{k}^{-1})(g_{k+1}^{-1}) && \text{(Associative Property)}\\
+          =&\ (g_{1}g_{2} \dots g_{k})(g_{1}^{-1}g_{2}^{-1} \dots g_{k}^{-1})(g_{k+1}g_{k+1}^{-1}) && \text{(Commutative Property)} \\
+          =&\ (e) (g_{k+1}g_{k+1}^{-1}) &&\text{(Inductive Hypothesis)} \\
+          =&\ g_{k+1}g_{k+1}^{-1} \\
+          =&\ e
+          \end{align*}
         \end{proof}
 \end{enumerate}
 \end{document}
