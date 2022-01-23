@@ -133,23 +133,31 @@
         Identity: The multiplicative identity for $\mathbb{R}^*$ is $1$ because \(a \cdot 1=a \ \forall a \in \mathbb{R}^*\). \\
         Inverse: The multiplicative inverse for $\mathbb{R}^*$ is $\frac{1}{a}$ because 
         \(a \cdot \frac{1}{a} = \frac{a \cdot 1}{a} = \frac{a}{a} = 1 \ \forall a \in \mathbb{R}^*\).
+        \pagebreak
       \setitemnumber{27}
         \item Prove that the inverse of \(g_{1}g_{2} \dots g_{n}\) is \(g_{n}^{-1}g_{n-1}^{-1} \dots g_{1}^{-1}\).
         \begin{proof}[Proof by induction]
           Base Case $(n = 1)$:
-          \[g_{1}g_{1}^{-1} = e\]
+          \[g_{1}g_{1}^{-1} = g_{1}^{-1}g_{1} = e\]
           Inductive Hypothesis $(n = k)$:
-          \[(g_{1}g_{2} \dots g_{k})(g_{k}^{-1}g_{k-1}^{-1} \dots g_{1}^{-1}) = e \]
-          Inductive Step $(n = k + 1)$ \quad (WTS:\@ \((g_{1}g_{2} \dots g_{k + 1})(g_{k+1}^{-1}g_{k}^{-1} \dots g_{1}^{-1}) = e \))
+          \[(g_{1}g_{2} \dots g_{k})(g_{k}^{-1}g_{k-1}^{-1} \dots g_{1}^{-1}) = (g_{k}^{-1}g_{k-1}^{-1} \dots g_{1}^{-1})(g_{1}g_{2} \dots g_{k}) = e \]
+          Inductive Step $(n = k + 1)$ \\
+          (WTS:\@ \((g_{1}g_{2} \dots g_{k+1})(g_{k+1}^{-1}g_{k}^{-1} \dots g_{1}^{-1}) = (g_{k+1}^{-1}g_{k}^{-1} \dots g_{1}^{-1})(g_{1}g_{2} \dots g_{k+1})  = e \))
           \begin{align*}
           &\ (g_{1}g_{2} \dots g_{k + 1})(g_{k+1}^{-1}g_{k}^{-1} \dots g_{1}^{-1}) \\
           =&\ (g_{1}g_{2} \dots g_{k})(g_{k + 1})(g_{k+1}^{-1})(g_{k}^{-1}g_{k-1}^{-1} \dots g_{1}^{-1}) && \text{(Associative Property)}\\
           =&\ (g_{1}g_{2} \dots g_{k})(e)(g_{k}^{-1}g_{k-1}^{-1} \dots g_{1}^{-1}) && \text{(Definition)} \\
           =&\ (g_{1}g_{2} \dots g_{k})(g_{k}^{-1}g_{k-1}^{-1} \dots g_{1}^{-1}) && \text{(Definition)} \\
-          =&\ e && \text{(Inductive Hypothesis)}
+          =&\ e && \text{(Inductive Hypothesis)} \\
+          \text{and} \\
+          &\ (g_{k+1}^{-1}g_{k}^{-1} \dots g_{1}^{-1})(g_{1}g_{2} \dots g_{k + 1}) \\
+          =&\ g_{k+1}^{-1}(g_{k}^{-1}g_{k-1}^{-1} \dots g_{2}g_{1}^{-1})(g_{1}g_{2}g_{3} \dots g_{k})g_{k+1} && \text{(Associative Property)} \\
+          =&\ (g_{k+1}^{-1})(e)(g_{k+1}) && \text{(Inductive Hypothesis)} \\
+          =&\ (g_{k+1}^{-1})(g_{k+1}) && \text{(Definition)} \\
+          =&\ e && \text{(Definition)}
           \end{align*}
+          \(\therefore (g_{1}g_{2} \dots g_{n})(g_{n}^{-1}g_{n}^{-1} \dots g_{1}^{-1}) = (g_{n}^{-1}g_{n-1}^{-1} \dots g_{1}^{-1})(g_{1}g_{2} \dots g_{n})  = e \)
         \end{proof}
-        \pagebreak
         \setitemnumber{31}
         \item Show that if $a^2 = e$ for all elements in $a$ in a group $G$, then $G$ must be abelian.
         \begin{proof}
