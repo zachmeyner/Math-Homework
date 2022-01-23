@@ -63,7 +63,7 @@
             \end{wrapfigure}
             This Cayley Table does not form a group because it is not Associative: \\
             $a \circ (b \circ c) = d$ and \\
-            $(a\circ b) \circ c = a$,  so \\
+            $(a \circ b) \circ c = a$,  so \\
             $a \circ (b \circ c) \neq (a \circ b) \circ c$
             \end{adjustbox}
             \\ \\ \\
@@ -82,7 +82,43 @@
             Closure: Every element in the Cayley Table is in the set $G$, so it is closed. \\
             Identity: taking any element and multiplying it by $a$ returns that element. So $a$ is the indentity element. \\
             Inverse: A diagonal is formed in the table with the identity element $a$, so every element is its own inverse. \\
-            Associative: Because $a$ is the identity element it is associative with every 
+            Associative: Because $a$ is the identity element it is associative with every set of two elements by Theorem 1. 
+            Because every element $p_{ij} = p_{ji}$ it is communtative as well, so only one permutation 
+            of the elements $b,c,d$ needs to be tested for associativity. We have \\ 
+            \((b \circ c) \circ d = a\) and \(b \circ (c \circ d) = a\), so 
+            \((b \circ c) \circ d = b \circ (c \circ d)\). \\
+            Therefore this Cayley Table is a group.
+            \end{adjustbox}
+            \pagebreak
+        \item \begin{adjustbox}{valign=T,raise=\strutheight,minipage={1.0\linewidth}}
+              \begin{wrapfigure}{l}{0pt}
+              \begin{tabular}{c|cccc}
+              $\circ$ & $a$ & $b$ & $c$ & $d$ \\
+              \cline{1-5}
+              $a$       & $a$ & $b$ & $c$ & $d$ \\
+              $b$       & $b$ & $c$ & $d$ & $a$ \\
+              $c$       & $c$ & $d$ & $a$ & $b$ \\
+              $d$       & $d$ & $a$ & $b$ & $c$ \\
+            \end{tabular}
+            \end{wrapfigure}
+            This Cayley Table is the same as the Cayley Table for the group $(\mathbb{Z}_4 , +)$ 
+            where \(a = 0, \ b = 1, \ c = 2, \ d = 3\), so This Cayley Table must be a group.
+            \end{adjustbox}
+            \\ \\ \\ \\ \\
+        \item \begin{adjustbox}{valign=T,raise=\strutheight,minipage={1.0\linewidth}}
+              \begin{wrapfigure}{l}{0pt}
+              \begin{tabular}{c|cccc}
+              $\circ$ & $a$ & $b$ & $c$ & $d$ \\
+              \cline{1-5}
+              $a$       & $a$ & $b$ & $c$ & $d$ \\
+              $b$       & $b$ & $a$ & $c$ & $d$ \\
+              $c$       & $c$ & $b$ & $a$ & $d$ \\
+              $d$       & $d$ & $d$ & $b$ & $c$ \\
+            \end{tabular}
+            \end{wrapfigure}
+            The identity element of this Cayley Table is $a$. 
+            There is no inverse for $d$ where $d \circ p = a$ in this Cayley Table.
+            Therefore this Cayley Table is not a Group.
             \end{adjustbox}
     \end{enumerate}
 \end{enumerate}
