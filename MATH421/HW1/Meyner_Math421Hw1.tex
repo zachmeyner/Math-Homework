@@ -35,7 +35,6 @@
 \date{}
 
 \begin{document}
-\setlength\extrarowheight{3pt}
 \maketitle
 \begin{enumerate}
   \setitemnumber{2}
@@ -87,7 +86,7 @@
             Associative: Because $a$ is the identity element it is associative with every set of two elements by Theorem 1. 
             Because every element $p_{ij} = p_{ji}$ it is communtative as well, so only one permutation 
             of the elements $b,c,d$ needs to be tested for associativity. We have \\ 
-            \((b \circ c) \circ d = a\) and \(b \circ (c \circ d) = a\), so 
+            \((b \circ c) \circ d = a\), and \(b \circ (c \circ d) = a\), so 
             \((b \circ c) \circ d = b \circ (c \circ d)\). \\
             Therefore this Cayley Table is a group.
             \end{adjustbox}
@@ -129,10 +128,18 @@
         Let $a,b,c \in \mathbb{R}^*$ \\
         Closure: Multiplying two real numbers will always return result in a real number. \\
         Associativity: The Field Axioms of real numbers state \(a*(b*c) = (a*b)*c\), so it is Associative as well. \\
-        Identity: The multiplicative identity for $\mathbb{R}^*$ is $1$ because \(a*1=a \ \forall a \in \mathbb{R}^*\). \\
+        Identity: The multiplicative identity for $\mathbb{R}^*$ is $1$ because \(a \cdot 1=a \ \forall a \in \mathbb{R}^*\). \\
         Inverse: The multiplicative inverse for $\mathbb{R}^*$ is $\frac{1}{a}$ because 
-        \(a*\frac{1}{a} = \frac{a*1}{a} = \frac{a}{a} = 1 \ \forall a \in \mathbb{R}^*\).
+        \(a \cdot \frac{1}{a} = \frac{a \cdot 1}{a} = \frac{a}{a} = 1 \ \forall a \in \mathbb{R}^*\).
       \setitemnumber{27}
         \item Prove that the inverse of \(g_{1}g_{2} \dots g_{n}\) is \(g_{n}^{-1}g_{n-1}^{-1} \dots g_{1}^{-1}\).
+        \begin{proof}[Proof by induction]
+          Base Case $(n = 1)$:
+          \[g_{1}g_{1}^{-1} = e\]
+          Inductive Hypothesis $(n = k)$:
+          \[(g_{1}g_{2} \dots g_{k})(g_{1}^{-1}g_{2}^{-1} \dots g_{k}^{-1}) = e \]
+          Inductive Step $(n = k + 1)$
+          \[(g_{1}g_{2} \dots g_{k + 1})(g_{1}^{-1}g_{2}^{-1} \dots g_{k + 1}^{-1}) \]
+        \end{proof}
 \end{enumerate}
 \end{document}
