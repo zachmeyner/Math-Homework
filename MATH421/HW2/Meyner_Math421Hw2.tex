@@ -1,0 +1,80 @@
+\documentclass[12pt]{article}
+
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+
+
+\newlength{\strutheight}
+\settoheight{\strutheight}{\strut}
+\newtheorem{theorem}{Theorem}
+\renewcommand\qedsymbol{$\blacksquare$}
+\newcommand\setitemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+
+\geometry{letterpaper,portrait,margin=1in}
+
+
+\title{\large Abstract Algebra Homework 2}
+\author{\large Zachary Meyner}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{enumerate}[label=\textbf{\arabic*}.]
+	\setitemnumber{41}
+	\item Prove that
+	      \[G=\{a+b\sqrt{2}: a,b \in \mathbb{Q} \ \text{and} \ a \ \text{and} \ b \ \text{are not both zero}\}\]
+	      is a subgroup if $\mathbb{R}^*$ under the group operation of multiplication.
+	      \begin{proof} Let $n,m \in G \ s.t. \ n = a+b\sqrt{2} \ \text{and} \ m = c+d\sqrt{2}$. \\
+            (WTS\@: $n \cdot m \in G$ and $n^{-1} \in G$) \\
+            Multiplying $m \cdot n$ we have 
+            \begin{align*}
+                (a+b\sqrt{2}) \cdot (c+d\sqrt{2}) &= ac+ad\sqrt{2} + bc\sqrt{2} + bd\sqrt{2}^2 && \text{(Distributive Property)} \\
+                &= ac + ad\sqrt2 +bc\sqrt2 + 2bd  \\
+                &= ac + \sqrt{2}(ad+bc) + 2bd && \text{(Distributive Property)} \\
+                &= (ac + 2bd) + (ad + bc)\sqrt{2} && \text{(Commutative and Associative Property)}
+            \end{align*}
+            and $(ac+2bd) + (ad+bc)\sqrt{2}$ is clearly an in $G$, so $n \cdot m$ must be in $G$.
+            Now if we take $n^{-1}$ we get
+            \begin{align*}
+                \frac{1}{a+b\sqrt{2}} &= \frac{1}{a+b\sqrt{2}} \cdot \frac{(a-b\sqrt{2})}{(a-b\sqrt{2})} && \text{(Multiplying by 1)} \\
+                &= \frac{a-b\sqrt{2}}{(a+b\sqrt{2})\cdot(a-b\sqrt{2})} \\
+                &= \frac{a-b\sqrt{2}}{a^2-b\sqrt{2}^2} && \text{(Distributive Property)} \\
+                &= \frac{a+(-b)\sqrt{2}}{a^2-2b} && \text{(Simplifying)} \\
+                &= \frac{a}{a^2-2b} + \frac{-b}{a^2-2b}\sqrt{2} && \text{(Commutative and Associative Propety)} \\
+            \end{align*} 
+            Because $a$ and $b$ are in $\mathbb{Q}$ we know $\frac{a}{a^2-2b}$ and $\frac{-b}{a^2-2b}$ must also be in $\mathbb{Q}$, so $n^{-1}$ must be in $G$. \\
+            $\therefore$ by the 2 step test $G$ is a subgroup of $\mathbb{R}^*$ under the operation of multiplication.
+	      \end{proof}
+          \pagebreak
+    \setitemnumber{45}
+    \item Prove that the intersection of two subgroups of a group $G$ is also a subgroup of $G$.
+          \begin{proof} Let $P \leq G$ and $H \leq G$. We know that at least the identity element $e \in P \cap H$ Let $a,b \in P \cap H$
+            (WTS\@: $ab^{-1} \in P \cap H$). Because $a,b \in P \cap H$ we know
+            \begin{align*}
+                a &\in P \cap H \\
+                \implies a &\in P \ \text{and} \ a \in H \\
+                b &\in P \cap H \\
+                \implies b &\in P \ \text{and} \ b \in H
+            \end{align*}
+            Since $P$ and $H$ are subgroups of G we have
+            \begin{align*}
+                &ab^{-1} \in P \ \text{and} \ ab^{-1} \in H \\
+                \implies &ab^{-1} \in P \cap H
+            \end{align*}
+            Thus $P \cap H$ is also a subgroup of $G$.
+          \end{proof}
+\end{enumerate}
+\end{document}
