@@ -56,7 +56,7 @@
                 &= \frac{a}{a^2-2b} + \frac{-b}{a^2-2b}\sqrt{2} && \text{(Commutative and Associative Propety)} \\
             \end{align*} 
             Because $a$ and $b$ are in $\mathbb{Q}$ we know $\frac{a}{a^2-2b}$ and $\frac{-b}{a^2-2b}$ must also be in $\mathbb{Q}$, so $n^{-1}$ must be in $G$. \\
-            $\therefore$ by the 2 step test $G$ is a subgroup of $\mathbb{R}^*$ under the operation of multiplication.
+            $\therefore$ By the 2 step test $G$ is a subgroup of $\mathbb{R}^*$ under the operation of multiplication.
 	      \end{proof}
           \pagebreak
     \setitemnumber{45}
@@ -76,5 +76,86 @@
             \end{align*}
             Thus $P \cap H$ is also a subgroup of $G$.
           \end{proof}
+    \setitemnumber{5}
+    \item Find the order of every element in $\mathbb{Z}_{18}$.
+    \begin{align*}
+    |1|&=18 \\
+    |2|&=9 \\
+    |3|&=6 \\
+    |4|&=9 \\
+    |5|&=18 \\
+    |6|&=3 \\
+    |7|&=18 \\
+    |8|&=9 \\
+    |9|&=2 \\
+    |10|&=9 \\
+    |11|&=18 \\
+    |12|&=3 \\
+    |13|&=18 \\
+    |14|&=9 \\
+    |15|&=6 \\
+    |16|&=9 \\
+    |17|&=18 \\
+    \end{align*}
+    \pagebreak
+    \setitemnumber{23}
+    \item Let $a,b \in G$. Prove the following statements.
+    \begin{enumerate}
+        \item The order of $a$ is the same as the order of $a^{-1}$.
+        \begin{proof} Let $a^n = e$, then 
+            \begin{align*}
+                e &= {(aa^{-1})}^n \\
+                  &= a^n{(a^{-1})}^n \\
+                  &= e{(a^{-1})}^n \\
+                  &= {(a^{-1})}^n \\
+            \end{align*}
+            So $|a^{-1}| \leq n$. Now we let ${(a^{-1})}^m = e$, similarly we have
+            \begin{align*}
+                e &= {(aa^{-1})}^m \\
+                  &= a^m{(a^{-1})}^m \\
+                  &= a^{m}e \\
+                  &= a^m
+            \end{align*}
+            So $|a| \leq m$. Thus we have both $|a^{-1}| \leq n \implies m \leq n$, \\ 
+            and $|a| \leq m \implies n \leq m$. Therefore $m = n$ and $|a| = |a^{-1}|$
+        \end{proof}
+        \item For all $g \in G, |a| = |g^{-1}ag|$
+        \begin{proof} Let $|a|=n$, then $a^n=e$. Furthermore
+            \begin{align*}
+                {(g^{-1}ag)}^{n} &= g^{-1}agg^{-1}ag \dots g^{-1}ag \\
+                                 &= g^{-1}ag && \text{(Cancelling $g^{-1}g$)} \\
+                                 &= g^{-1}eg \\
+                                 &= g^{-1}g \\
+                                 &= e
+            \end{align*}
+            So $|g^{-1}ag| \leq n$. Now let $c = g$. The same steps can be used to show that 
+            $|cg^{-1}agc^{-1}| \leq |g^{-1}ag|$. But $cg^{-1}agc^{-1} = gg^{-1}agg^{-1} = a$. Thus $|a| \leq |g^{-1}ag|$ or 
+            $n \leq |g^{-1}ag| \leq n$. Therefore $|g^{-1}ag| = n = |a|$.
+        \end{proof}
+        \item The order of $ab$ is the same as the order of $ba$.
+        \begin{proof} Let $|ab| = n$, then ${(ab)}^{n} = e$. We show
+            \begin{align*}
+                {(ba)}^n &= {(ba)}^{n}e \\
+                         &= {(ba)}^{n}bb^{-1} \\
+                         &= bababa \dots babb^{-1} \\
+                         &= b{(ab)}^{n}b^{-1} && \text{(Associative Property)} \\
+                         &= beb^{-1} \\
+                         &= bb^{-1} \\
+                         &= e
+            \end{align*}
+            So $|ba| \leq n$. Next we let $|ba| = m$, then ${(ba)}^m = e$. We can show again that
+            \begin{align*}
+                {(ab)}^m &= {(ab)}^{m}e \\
+                         &= {(ab)}^{m}aa^{-1} \\
+                         &= ababab \dots abaa^{-1} \\
+                         &= a{(ba)}^{m}a^{-1} && \text{(Associative Property)} \\
+                         &= aea^{-1} \\
+                         &= aa^{-1} \\
+                         &= e
+            \end{align*}
+            So $|ab| \leq m$. From here we know $m \leq n$ and $n \leq m$. \\
+            Thus $n=m$ and $|ab| = |ba|$.
+        \end{proof}
+    \end{enumerate}
 \end{enumerate}
 \end{document}
