@@ -1,0 +1,209 @@
+\documentclass[12pt]{article}
+
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+
+
+\newlength{\strutheight}
+\settoheight{\strutheight}{\strut}
+\newtheorem{theorem}{Theorem}
+\renewcommand\qedsymbol{$\blacksquare$}
+\newcommand\setitemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+
+\geometry{letterpaper,portrait,margin=1in}
+
+
+\title{\large Intro to Analysis Homework 1}
+\author{\large Zachary Meyner}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+	\item Using only the field axioms, the order properties (Theorem 2.1.5), and the definition of the inequalities
+	      (Defn 2.1.6), prove that
+	      \begin{enumerate}
+		      \item If $a > b$, then $a+c > b+c$ for any real number $c$.
+		            \begin{proof} Let $a > b$, then $a-b \in \mathbb{R}^+$.
+			            \begin{align*}
+				            a-b & = a+0-b         &  & \text{(A3)} \\
+				                & = a+(c+-c)-b    &  & \text{(A4)} \\
+				                & = (a+c)+(-c-b)  &  & \text{(A2)} \\
+				                & = (a+c)+-1(c+b) &  & \text{(D)}  \\
+				                & = (a+c)-1(c+b)  &  & \text{(A1)} \\
+				                & = (a+c)-(c+b)   &  & \text{(M3)} \\
+			            \end{align*}
+			            So $(a+c)-(c+b) \in \mathbb{R}^+$, and by definition $a+c > b+c$.
+		            \end{proof}
+		      \item If $a > b$ and $c > 0$, then $ac > bc$.
+		            \begin{proof} Let $a > b$, then $a-b \in \mathbb{R}^+$, $c > 0$, so $c \in \mathbb{R}^+$. So $c(a-b) \in \mathbb{R}^+$
+			            by the second order property. The distrubitive property can be used to get $ca - cb \in \mathbb{R}^+$. Next the Commutative
+			            Property is used to get $ac-bc \in \mathbb{R}^+$. \\
+			            Thus by defintiion $ac > bc$.
+		            \end{proof}
+		      \item If $a > b$ and $c < 0$, then $ac < bc$.
+		            \begin{proof} If $a > b$, then $a-b \in \mathbb{R}^+$, and $c < 0$ so $-c \in \mathbb{R}^+$.
+			            \begin{align*}
+				            -c(a-b) & \in \mathbb{R}^+ &  & \text{(Second Order Property)} \\
+				            -ca+cb  & \in \mathbb{R}^+ &  & \text{(D)}                     \\
+				            cb-ca   & \in \mathbb{R}^+ &  & \text{(A1)}                    \\
+				            bc-ac   & \in \mathbb{R}^+ &  & \text{(M1)}                    \\
+			            \end{align*}
+			            so $bc > ac$ which is the same as $ac < bc$.
+		            \end{proof}
+	      \end{enumerate}
+	      \pagebreak
+	\item If $4 < x < 5$ and $f(x) = \frac{x-3}{x^2-9x+14}$, then find a real number M so that $|f(x)| \leq M$. \\
+	      $|f(x)| = \frac{|x-3|}{|x^2-9x+14|} = \frac{|x-3|}{|x-2||x-7|}$.  \\
+	      Let $4<x<5$, then $1 < x-3 < 2$. So $|x-3| = x-3 < 2$ \\
+	      Now let $4 < x < 5$, then $2 < x-2 < 3$. So $|x-2| = x-2 > 2$. \\
+	      Finally let $4 < x < 5$, then $-3 < x-7 < -2 \implies 3 > -(x-7) > 2$. \\
+	      So $|x-7| = -(x-7) > 2$. \\
+	      $|f(x)| = \frac{|x-3|}{|x^2-9x+14|} = \frac{|x-3|}{|x-2||x-7|} = \frac{2}{(2)(2)} = \frac{2}{4} = \frac{1}{2}$ \\
+	      $\therefore M = \frac{1}{2}$.
+	\item Using only the order properties, prove that if $ 0 < a < b$, then $a^2 < ab < b^2$.
+	      \begin{proof} If $0 < a < b$, then $a > 0$, and $b > a$. By 1b
+		      \begin{align*}
+			      b > a & \implies ba > aa  \\
+			            & \implies ba > a^2
+		      \end{align*}
+		      By Theorem 2.1.7a $a > 0$ and $b > a \implies b > 0$. Again by 1b we show
+		      \begin{align*}
+			      b > a & \implies bb > ab  \\
+			            & \implies b^2 > ab
+		      \end{align*}
+		      $\therefore a^2 < ab < b^2$.
+	      \end{proof}
+	\item Prove that $a \in \mathbb{R}$ satisfies $a^2 = a$ if and only if either $a = 0$ or $a = 1$.
+	      \begin{proof} Let $a \in \mathbb{R}$ and $a^2 = a$ then we have
+		      \begin{align*}
+			      a^2-a    & = a-a                      &  & \text{(ii)} \\
+			      a^2-a    & = 0                        &  & \text{(A4)} \\
+			      aa - a1  & = 0                        &  & \text{(M3)} \\
+			      a(a-1)   & = 0                        &  & \text{(D)}  \\
+			      a = 0 \  & \text{or} \ a-1 = 0        &  & \text{(i)}  \\
+			      a = 0 \  & \text{or} \ (a-1)+1 = 0+1  &  & \text{(ii)} \\
+			      a = 0 \  & \text{or} \ a+(-1+1) = 0+1 &  & \text{(A2)} \\
+			      a = 0 \  & \text{or} \ a+0 = 0+1      &  & \text{(A4)} \\
+			      a = 0 \  & \text{or} \ a = 1          &  & \text{(A3)} \\
+		      \end{align*}
+		      Once again suppose that $a^2 = 0$.
+		      \item[\underline{Case 1}: $a = 0$]
+		      \begin{align*}
+			      a^2 & = 0^2       &  & \text{(Hypothesis)} \\
+			          & = 0 \cdot 0                          \\
+			          & = 0         &  & \text{(iii)}        \\
+			          & = a         &  & \text{(Hypothesis)}
+		      \end{align*}
+		      so $a^2 = a$
+		      \item[\underline{Case 2}: $a = 1$]
+		      \begin{align*}
+			      a^2 & = 1^2       &  & \text{(Hypothesis)} \\
+			          & = 1 \cdot 1                          \\
+			          & = 1         &  & \text{(M3)}         \\
+			          & = a         &  & \text{(Hypothesis)}
+		      \end{align*}
+		      so $a^2 = a$
+	      \end{proof}
+	\item If $B$ is a bounded set, and $A$ is a subset of $B$, then show that $A$ is a bounded set as well.
+	      \begin{proof} $B$ is bounded, so $\exists b_1 \in B$ that is a lower bound, and $\exists b_2 \in B$ that is an upper bound,
+		      s.t. $b_1 \leq b \leq b_2 \ \forall b \in B$. Now let $a \in A$, then $a \in B$ too, so $b_1 \leq a \leq b_2$. \\
+		      $\therefore A$ is bounded as well.
+	      \end{proof}
+	\item If $A$ and $B$ are nonempty sets of real numbers with $A \subseteq B$ and $B$ is bounded, then show that
+	      \begin{gather*}
+		      \sup (A) \leq \sup (B)
+	      \end{gather*}
+	      \begin{proof} From 5 we know that $A \subseteq B$ with $B$ being bounded, then $A$ is bounded too,
+		      so $\sup (A)$ and $\sup (B)$ exist. Let $a \in A$, so $a \in B$ as well, and $a \leq$ $\sup (B)$. Since
+		      $\sup (B)$ is an upper bound on $A$, and $\sup (A)$ is the least upper bound on $A$, we know $\sup (A) \leq \sup (B)$.
+	      \end{proof}
+	\item If $x,y,z \in \mathbb{R}$ with $x \leq z$, then show that $x \leq y \leq z$ if and only if $|x-y| + |y-z| = |x-z|$.
+	      \begin{proof} Assume $x \leq y \leq z$. \\
+		      Then $x \leq y \implies |x-y| = -(x-y) = -x+y$ and\\
+		      $y \leq z \implies |y-z| = -(y-z) = -y+z$ \\
+		      and by Thm 2.1.7a $x \leq z$, so $|x-z| = -(x-z) = -x+z$. We now have
+		      \begin{align*}
+			      |x-y|+|y-z| & = (-x+y) + (-y+z)                    \\
+			                  & = -x + (y + -y) + z &  & \text{(A2)} \\
+			                  & = -x + 0 + z        &  & \text{(A4)} \\
+			                  & = -x + z            &  & \text{(A3)} \\
+			                  & = |x-z|
+		      \end{align*}
+		      Now assume that $|x-y| + |y-z| = |x-z|$ \\
+		      BMOC assume that $x > y$ or $y > z$.
+		      \item[\underline{Case 1}: ($x > y$)] We know $x \leq z$, so $y < z$ as well.\\
+		      Next we know that $|x-y| = x-y, |y-z| = -y+z$, and $|x-z| = -x+z$. Thus
+		      \begin{align*}
+			      |x-y|+|y-z|         & = |x-z|                                       \\
+			      \implies x-y + -y+z & = -x+z                                        \\
+			      \implies x -2y + z  & = -x+z                                        \\
+			      \implies x -2y      & = -x    &  & \text{(Add -z)}                  \\
+			      \implies -2y        & = -2x   &  & \text{(Add -x)}                  \\
+			      \implies y          & = x     &  & \text{(Multiply $\frac{-1}{2}$)} \\
+		      \end{align*}
+		      But $x > y$, so this is a contradiction.
+		      \item[\underline{Case 2}: ($y > z$)] We know $x \leq z$ so $y > x$ as well. \\
+		      Next we know that $|x-y| = -x+y, |y-z| = y-z$, and $|x-z| = -x+z$. Thus
+		      \begin{align*}
+			      |x-y|+|y-z|          & = |x-z|                                      \\
+			      \implies -x+y + y-z  & = -x+z                                       \\
+			      \implies -x + 2y - z & = -x+z                                       \\
+			      \implies 2y - z      & = z     &  & \text{(Add x)}                  \\
+			      \implies 2y          & = 2z    &  & \text{(Add z)}                  \\
+			      \implies y           & = z     &  & \text{(Multiply $\frac{1}{2}$)} \\
+		      \end{align*}
+		      But $y > z$, so this is a contradiction. Therefore $x \leq y \leq z$.
+	      \end{proof}
+	\item If they exist, find the $\inf (S)$ and $\sup (S)$ given the following set.
+	      \begin{equation*}
+		      S= \bigg\{1-\frac{(-1)^n}{n}: n \in \mathbb{N} \bigg\}
+	      \end{equation*}
+	      $\sup (S) = 2$ and $\inf (S) = \frac{1}{2}$
+	\item If $A$ is a nonempty subset of real numbers, then $\inf (A) \leq \sup (A)$.
+	      \begin{proof} Let $a \in A$. We have $\inf (A) \leq a$ and $a \leq \sup (A)$. Thus $\inf (A) \leq a \leq \sup (A)$.
+		      $\therefore \inf (A) \leq \sup (A)$.
+	      \end{proof}
+	      \pagebreak
+	\item Solve for x:
+	      \begin{equation*}
+		      |x+1| + |x-2| = 7
+	      \end{equation*}
+	      When $x < -1$ we know that $|x+1| = -(x+1) = -x-1$ and that \\
+	      $|x-2| = -(x-2) = -x+2$. So we have
+	      \begin{gather*}
+		      -x-1 - x+2 = 7 \\
+		      -2x + 1 = 7 \\
+		      -2x = 6 \\
+		      x = -3
+	      \end{gather*}
+	      Next, when $-1 \leq x \leq 2$ we know that $|x+1| = x+1$ and that \\
+	      $|x-2| = -(x-2) = -x+2$. So we have
+	      \begin{gather*}
+		      x+1 - x+2 = 7 \\
+		      3=7 \\
+	      \end{gather*}
+	      Which is not true, so there is no solution here. \\
+	      Finally wheb $x > 2$ we know that $|x+1| = x+1$ and $|x-2| = x-2$. So
+	      \begin{gather*}
+		      x+1 + x-2=7 \\
+		      2x-1 = 7 \\
+		      2x=8 \\
+		      x=4 \\
+	      \end{gather*}
+          So $x = {-3,4}$
+\end{enumerate}
+\end{document}
