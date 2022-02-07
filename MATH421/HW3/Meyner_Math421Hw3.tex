@@ -1,0 +1,104 @@
+\documentclass[12pt]{article}
+
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+
+
+\newlength{\strutheight}
+\settoheight{\strutheight}{\strut}
+\newtheorem{theorem}{Theorem}
+\renewcommand\qedsymbol{$\blacksquare$}
+\newcommand\setitemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+
+\geometry{letterpaper,portrait,margin=1in}
+
+
+\title{\large Abstract Algebra Homework 3}
+\author{\large Zachary Meyner}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{enumerate}[label=\textbf{\arabic*}.]
+	\setitemnumber{1}
+	\item Write the following permutations in cucle notation.
+	      \begin{enumerate}
+		      \item \begin{equation*}
+			            \bigg(\begin{matrix}
+				            1 & 2 & 3 & 4 & 5 \\
+				            2 & 4 & 1 & 5 & 3
+			            \end{matrix}\bigg) = (\begin{matrix}
+				            1 & 2 & 4 & 5 & 3)
+			            \end{matrix}
+		            \end{equation*}
+		      \item \begin{equation*}
+			            \bigg(\begin{matrix}
+				            1 & 2 & 3 & 4 & 5 \\
+				            4 & 2 & 5 & 1 & 3
+			            \end{matrix}\bigg) = (\begin{matrix}
+				            1 & 4)(3 & 5
+			            \end{matrix})
+		            \end{equation*}
+	      \end{enumerate}
+	      \setitemnumber{2}
+	\item Compute each of the following.
+	      \begin{enumerate}
+		      \item \begin{equation*}
+			            (1 \ 3 \ 4 \ 5)(2 \ 3 \ 4) = (3 \ 4 \ 5 \ 2 \ 1)
+		            \end{equation*}
+		      \item \begin{equation*}
+			            (1 \ 2)(1 \ 2 \ 5 \ 3) = (1 \ 5 \ 2 \ 4 \ 3)
+		            \end{equation*}
+		      \item \begin{equation*}
+			            (1 \ 4 \ 3)(2 \ 3)(2 \ 4) = (1 \ 4 \ 3)(4 \ 3) = (4 \ 3 \ 1)
+		            \end{equation*}
+	      \end{enumerate}
+	      \setitemnumber{3}
+	\item Express the following permutations as products of transpositions and identify them as
+	      even or odd.
+	      \begin{enumerate}
+		      \item \begin{equation*}
+			            (1 \ 4 \ 3 \ 5 \ 6) = (1 \ 6)(1 \ 5)(1 \ 3)(1 \ 4)
+		            \end{equation*}
+		            Even transposition
+		      \item \begin{equation*}
+			            (1\ 5 \ 6)(2 \ 3 \ 4) = (1 \ 6)(1 \ 5)(2 \ 4)(2 \ 3)
+		            \end{equation*}
+		            Even transposition
+		      \item \begin{equation*}
+			            (1 \ 4 \ 2 \ 6)(1 \ 4 \ 2) = (1 \ 6)(1 \ 2)(1 \ 4)(1 \ 2)(1 \ 4)
+		            \end{equation*}
+		            Odd transposition
+	      \end{enumerate}
+          \setitemnumber{4}
+          \item Find $(a_1, a_2, \dots, a_n)^{-1}$.
+          \begin{equation*}
+              (a_1, a_2, \dots, a_n)^{-1} = (a_n, a_{n-1} \dots, a_2, a_1) = (a_1, a_n, a_{n-1}, \dots, a_2)
+          \end{equation*}
+          \setitemnumber{13}
+          \item Let $\sigma = \sigma_1 \cdots \sigma_m \in S_n$ be the product of disjoint cycles. Prove that the order of $\sigma$ is 
+          the least common multiple of the lengths of the cycles $\sigma_1, \dots \sigma_m$.
+          \begin{proof}
+              Let $\sigma = \sigma_1 \cdots \sigma_m$ where $\sigma_1, \dots, \sigma_m$ are disjoint. Also let $|\sigma| = k$. 
+              We know $\sigma_1,\dots, \sigma_m$ commute with each other so \begin{equation*}
+                  \sigma^k = \sigma_1^k \cdots \sigma_m^k = id \Longleftrightarrow \sigma_1^k = \cdots = \sigma_m^k = id
+              \end{equation*}
+              because they are disjoint. This also means that $k$ is a common multiple of $|\sigma_1|, \dots, |\sigma_m|$. 
+              Because the order of the cycle is its lenght, the smallest $k$ must then be the least common multiple 
+              of the order of the cycles.
+          \end{proof}
+\end{enumerate}
+\end{document}
