@@ -1,0 +1,82 @@
+\documentclass[12pt]{article}
+
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+
+
+\newlength{\strutheight}
+\settoheight{\strutheight}{\strut}
+\newtheorem{theorem}{Theorem}
+\renewcommand\qedsymbol{$\blacksquare$}
+\newcommand\setitemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+
+\geometry{letterpaper,portrait,margin=1in}
+
+
+\title{\large Intro to Analysis Homework 2}
+\author{\large Zachary Meyner}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+	\item Let $S$ be a nonempty bounded set in $\mathbb{R}$. Let $b<0$ and consider
+	      $bS=\{bs:s \in S\}$. Prove $\sup(bS) = b * \inf(S)$
+	      \begin{proof}
+		      Let $\sup(S) = s$ We know that $\sup(bS) = b\sup(S) = bs$.  So $\forall s_0 \in S \ s_0 \leq s$.
+		      Becsue $b < 0$ multiplying it into the inequality give is $bs_0 \geq bs \ \forall bs_0 \in bS$. So by
+		      definition $bs$ is the smallest element in $bS$ when $b < 0$, so $bs = \inf(bS) = b*\inf(S)$.
+	      \end{proof}
+	\item Let $I_n = \Big[1, 1 + \frac{1}{n} \Big] \ \forall n \in \mathbb{N}$. Prove $\bigcap_{n=1}^{\infty} I_n = \{1\}$.
+	      \begin{proof}
+		      Clearly 1 is in $\Big[1, 1 + \frac{1}{n} \Big]$. BMOC Let $x \in \bigcap_{n=1}^{\infty}I_n$. Then
+		      \begin{gather*}
+			      1 < x \leq 1 + \frac{1}{n} \\
+			      0 < x-1 \leq \frac{1}{n} \\
+		      \end{gather*}
+		      Since $x-1 > 0$ by Archimedean Property $\exists m \in \mathbb{N}$ s.t.
+		      \begin{align*}
+			      x-1 > \frac{1}{m} \\
+			      \implies x > 1+\frac{1}{m}
+		      \end{align*}
+		      but $x < 1+ \frac{1}{n} \ \forall n \in \mathbb{N}$. $\therefore \bigcap_{n=1}^{\infty}I_n = \{1\}$.
+	      \end{proof}
+	\item Consider the set $S = \Big\{\frac{1}{n}-\frac{1}{m}: n,m \in \mathbb{N} \Big\}$. Find the infimum and supremum of the
+	      set. Then, prove your assertions. \\
+	      $\inf(S) = -1$ and $\sup(S) = 1$
+	\item Let $I_n = \Big(2-\frac{1}{n},2\Big) \ \forall n \in \mathbb{N}$. Prove $\bigcap_{n=1}^{\infty}I_n = \emptyset$.
+	      \begin{proof}
+            BMOC let $x \in \bigcap_{n=1}^{\infty}I_n$. Then
+            \begin{gather*}
+                2-\frac{1}{n} < x < 2 \\
+                2-\frac{1}{n} < x-2 < 0 \\
+                0 < 2-x < \frac{1}{n} - 2 \\
+            \end{gather*}
+            Since $2-x > 0$ by Archimedean Property $\exists m \in \mathbb{N}$ s.t.
+            \begin{align*}
+                2-x > \frac{1}{m} \\
+                \implies -x > \frac{1}{m}-2 \\
+                \implies x < 2-\frac{1}{m}
+            \end{align*}
+            but $x > 2-\frac{1}{n} \ \forall n \in \mathbb{N}$. $\therefore \bigcap_{n=1}^{\infty}I_n = \emptyset$
+	      \end{proof}
+    \item Find the infimum of the set and prove your result.
+          \begin{equation*}
+              S = \bigg\{\frac{3+n}{n}:n \in \mathbb{N}\bigg\}
+          \end{equation*}
+\end{enumerate}
+
+\end{document}
