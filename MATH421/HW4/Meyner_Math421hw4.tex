@@ -1,0 +1,66 @@
+\documentclass[12pt]{article}
+
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+
+
+\newlength{\strutheight}
+\settoheight{\strutheight}{\strut}
+\newtheorem{theorem}{Theorem}
+\renewcommand\qedsymbol{$\blacksquare$}
+\newcommand\setitemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+
+\geometry{letterpaper,portrait,margin=1in}
+
+
+\title{\large Abstract Algebra Homework 4}
+\author{\large Zachary Meyner}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{enumerate}[label=\textbf{\arabic*}.]
+	\setitemnumber{2}
+	\item Suppose that $G$ is a finite group with 60 elements. What are the orders of possible subgroups of $G$? \\
+	      By Lagrange's Theorem the orders of the possible subgroups must divide 60, so possible
+	      orders are $\{1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60\}$
+	\setitemnumber{11}
+	\item Let $H$ be a subgroup of a group $G$ and suppose that $g_1, g_2 \ in G$. Prove that the following 
+	conditions are equivalent.
+    \begin{enumerate}
+        \item $g_1H = g_2H$
+        \item $Hg_1^{-1} = Hg_2^{-1}$
+        \item $g_1H \subseteq g_2H$
+        \item $g_2 \in g_1H$
+        \item $g_1^{-1}g_2 \in H$
+    \end{enumerate}
+    \begin{proof} (a) $\Rightarrow$ (c) Done in class \\
+(c) $\Rightarrow$ (d) Because $g_1H \subseteq g_2H \ \exists h \in H$ s.t. $g_1 = g_2h$. Then $g_1h^{-1} = g_2$. So $g_2 \in g_1H$. \\
+(d) $\Rightarrow$ (e) Done in class \\
+(e) $\Rightarrow$ (b) Because $g_1^{-1}g_2 \in H \ \exists h \in H$ s.t. $g_1^{-1}g_2 = h \implies g_1^{-1} = hg_2^{-1}$ and $h^{-1}g_1^{-1} = g_2^{-1}$. \\
+Case 1: Suppose $h_1g_1^{-1} \in Hg_1^{-1}$. Then $h_1g_1^{-1} = h_1hg_2^{-1} \in Hg_2^{-1}$. \\
+$\therefore Hg_1^{-1} \subseteq Hg_2^{-1}$. \\
+Case 2: Suppose $h_2g_2^{-1} \in Hg_2^{-1}$. Then $h_2g_2^{-1} = h_2h^{-1}g_1^{-1} \in Hg_1^{-1}$. \\
+$\therefore Hg_2^{-1} \subseteq Hg_1^{-1}$ and $Hg_1^{-1} = Hg_2^{-1}$. \\
+(b) $\Rightarrow$ (a) Since $Hg_1^{-1} = Hg_2^{-1} \ \exists h \in H$ s.t. $g_1^{-1} = hg_2^{-1} \implies g_2h^{-1} = g_1$ and $g_2 = g_1h$. \\
+Case 1: Let $g_2h_1 \in g_2H$. Then $g_2h_1 = g_1hh_1 \in g_1H$. \\
+$\therefore g_2H \subseteq g_1H$. \\
+Case 2: Let $g_1h_2 \in g_1H$. Then $g_1h_2 = g_2h^{-1}h_2 \in g_2H$. \\
+$\therefore g_1H \subseteq g_2H$ and $g_1H = g_2H$.
+    \end{proof}
+\end{enumerate}
+
+\end{document}
