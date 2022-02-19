@@ -1,0 +1,88 @@
+\documentclass[12pt]{article}
+
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+
+
+\newlength{\strutheight}
+\settoheight{\strutheight}{\strut}
+\newtheorem{theorem}{Theorem}
+\renewcommand\qedsymbol{$\blacksquare$}
+\newcommand\setitemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+
+\geometry{letterpaper,portrait,margin=1in}
+
+
+\title{\large Abstract Algebra Homework 5}
+\author{\large Zachary Meyner}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{enumerate}[label=\textbf{\arabic*}.]
+	\setitemnumber{2}
+	\item Prove that $\mathbb{Z} \cong n\mathbb{Z}$ for $n \neq 0$.
+	      \begin{proof} Let $\varphi: \mathbb{Z}\rightarrow n\mathbb{Z}$ with $n \neq 0$, and $\varphi(x) = nx$. \\
+		      One-to-one: \\
+		      Let $a,b \in \mathbb{Z}$ with $\varphi(a) = \varphi(b)$. Then
+		      \begin{align*}
+			      na            & = nb \\
+			      \Rightarrow a & = b
+		      \end{align*}
+		      so $\varphi$ is one-to-one. \\
+		      Onto: \\
+		      Let $x \in n\mathbb{Z}$ and consider
+		      \begin{align*}
+			      y          & = \frac{x}{n}  \\
+			      \varphi(y) & = n\frac{x}{n} \\
+			      \varphi(y) & = x
+		      \end{align*}
+		      so $y \in \mathbb{Z}$ because $x \in n\mathbb{Z}$, and $\varphi$ is onto. \\
+		      Preserves Operation: \\
+		      Let $a,b \in \mathbb{Z}$, then
+		      \begin{align*}
+			      \varphi(a+b) & = n(a+b)                  \\
+			                   & = na+nb                   \\
+			                   & = \varphi(a) + \varphi(b)
+		      \end{align*}
+		      so $\varphi$ preserves operation.
+	      \end{proof}
+	      \setitemnumber{26}
+	\item Let $\varphi: G \rightarrow H$ be a group isomorphism. Show that $\varphi(x) = e_H$ iff $x = e_G$,
+	      where $e_G$ and $e_H$ are the identities of $G$ and $H$, respectively.
+	      \begin{proof}$(\Rightarrow)$ Let $x \in G$ s.t. $\varphi(x) = e_H$. Then
+            \begin{align*}
+                \varphi(x)\varphi^{-1}(x) = e_H{(e_{H})}^{-1} = e_H \\
+                \varphi(xx^{-1}) = \varphi(e_G) = e_H \\
+                \varphi(x) = e_H
+            \end{align*}
+            thus $x = e_G$. \\
+            $(\Leftarrow)$ Let $x = e_G$ and $h = \varphi(g) \in H$, then
+            \begin{align*}
+                h\varphi(x) &= \varphi(g)\varphi(x) \\
+                            &= \varphi(gx) \\
+                            &= \varphi(ge_G) \\
+                            &= \varphi(g) \\
+                            &= h \\
+                            &= \varphi(e_Gg) \\
+                            &= \varphi(x)\varphi(g) \\
+                            &= \varphi(x)h
+            \end{align*}
+            So by definition of identity $\varphi(x) = e_H$.
+	      \end{proof}
+\end{enumerate}
+
+\end{document}
