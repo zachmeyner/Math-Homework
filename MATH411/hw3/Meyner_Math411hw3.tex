@@ -1,0 +1,74 @@
+\documentclass[12pt]{article}
+
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+
+
+\newlength{\strutheight}
+\settoheight{\strutheight}{\strut}
+\newtheorem{theorem}{Theorem}
+\renewcommand\qedsymbol{$\blacksquare$}
+\newcommand\setitemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+
+\geometry{letterpaper,portrait,margin=1in}
+
+
+\title{\large Intro to Analysis Homework 3}
+\author{\large Zachary Meyner}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+	\item Let $a_1 = 1$ and define $a_{n+1} = 1 + \frac{a_n}{2}$. Show that the sequence converges and make an
+	      educated guess for the limit value. \\
+	      Guess: $a_n \rightarrow 2$
+	      \begin{gather*}
+		      a_n \leq a_{n+1} \\
+		      a_n \leq 1 + \frac{a_n}{2} \\
+		      \frac{a_n}{2} \leq 1 \\
+		      a_n \leq 2
+	      \end{gather*}
+	      \begin{proof}
+		      \underline{Claim 1}: ($a_n$) is bounded above by 2. \\
+		      Base case: ($n = 2$)
+		      \begin{align*}
+			      a_2 & = 1+\frac{a_1}{2} \\
+			          & = 1+\frac{1}{2}   \\
+			          & = \frac{3}{2}
+		      \end{align*}
+		      Inductive Hypothesis: ($n = k$) \\
+		      Assume that $a_k < 2$ \\
+		      Inductive Step ($n = k+1$)
+		      \begin{align*}
+			      a_{k+1} \leq 2  \Rightarrow 1+\frac{a_k}{2} & \leq 2                                    \\
+			      \Rightarrow \frac{a_k}{2}                   & \leq 1                                    \\
+			      \Rightarrow a_k                             & \leq 2 &  & \text{(Inductive Hypothesis)} \\
+		      \end{align*}
+		      $\therefore a_n$ is bounded above by $2$. \\
+		      \underline{Claim 2}: ($a_n$) is increasing. \\
+		      By claim 1,
+		      \begin{align*}
+			      a_n &\leq 2  \\
+                  \Rightarrow \frac{a_n}{2} &\leq 1 \\
+                  \Rightarrow a_n &\leq 1+\frac{a_n}{2} \\
+                  \Rightarrow a_n &\leq a_{n+1}
+		      \end{align*}
+              Thus ($a_n$) is decreasing, and by the Monotone Convergence Theorem it converges.
+	      \end{proof}
+\end{enumerate}
+
+\end{document}
