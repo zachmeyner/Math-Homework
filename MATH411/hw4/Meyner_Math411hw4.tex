@@ -1,0 +1,91 @@
+\documentclass[12pt]{article}
+
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+
+
+\newlength{\strutheight}
+\settoheight{\strutheight}{\strut}
+\newtheorem{theorem}{Theorem}
+\renewcommand\qedsymbol{$\blacksquare$}
+\newcommand\setitemnumber[1]{\setcounter{enumi}{\numexpr#1--1\relax}}
+
+\geometry{letterpaper,portrait,margin=1in}
+
+
+\title{\large Intro to Analysis Homework 4}
+\author{\large Zachary Meyner}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+	\item Given that ($a_n$) is a Cauchy sequence, use the definition (as an Epsilon argument) to
+	      show that ($a_n^2$) is also a Cauchy sequence. Then provide an example to show that the
+	      converse is not true.
+	      \begin{proof}
+		      Since ($a_n$) is Cauchy iit is also bounded. So $\exists M \in \mathbb{R}$ s.t. $|a_n| \leq M$. Let $\varepsilon > 0$
+		      be given. Since ($a_n$) is Cauchy $\exists H \in \mathbb{R}$ s.t. $\forall n,m \geq H |a_n-a_m| < \frac{\varepsilon}{2M}$. \\
+		      Then $\forall n,m \geq H$
+		      \begin{align*}
+			      |a_n^2 - a_m^2| & = |a_n-a_m||a_n+a_m|                       \\
+			                      & \leq \frac{\varepsilon}{2M}|a_n+a_m|       \\
+			                      & \leq \frac{\varepsilon}{2M}(|a_n| + |a_m|) \\
+			                      & = \frac{\varepsilon}{2M}(M+M)              \\
+			                      & =\frac{\varepsilon}{2M}(2M)                \\
+			                      & = \varepsilon
+		      \end{align*}
+	      \end{proof}
+	      The counterexample to the converse is if ${(a_n)} = {(-1)}^n = \{-1, 1, -1, \cdots \}$ is not Cauchy,
+	      but ${(a_n^2)} = {(-1)}^2 = \{1, 1, \cdots\}$. So $(a_n^2)$ is Cauchy, but $(a_n)$ is not.
+	\item Given that $(a_n)$ and $(b_n)$ are Cuachy sequences, use the definition (as an Epsilon
+	      argument) to show that ($a_{n}b_n$) is also a Cauchy sequence.
+	      \begin{proof}
+		      Let $\varepsilon > 0$ be given. Because ($a_n$) is Cauchy $|a_n| \leq A$. Since ($a_n$) is Cauchy
+		      $\exists H_a \in \mathbb{R}$ s.t. $\forall n,m \geq H_a$. \\
+		      $|a_n-a_m| < \frac{\varepsilon}{2B}$ \\
+		      Because ($b_n$) is Cauchy $|b_n| \leq B$. Since ($b_n$) is Cauchy $\exists H_b \in \mathbb{R}$ s.t. $\forall n,m \geq H_b$ \\
+		      $|b_n-b_m| < \frac{\varepsilon}{2A}$ \\
+		      Consider $H = \max(H_a, H_b)$, then $\forall n,m \in \mathbb{R}$
+		      \begin{align*}
+			      |a_{n}b_n - a_{m}b_m| & = |a_{n}b_n - a_{n}b_m + a_{n}b_m - a_{m}b_m|                                                \\
+			                            & \leq |a_{n}b_n - a_{n}b_m| + |a_{n}b_m - a_{m}b_m|         &  & \text{(Triangle Inequality)} \\
+			                            & = |a_n||b_n-b_m| + |b_m||a_n-a_m|                                                            \\
+			                            & \leq A|b_n-b_m| + B|a_n-a_m|                                                                 \\
+			                            & < A(\frac{\varepsilon}{2A}) + B(\frac{\varepsilon}{2B})                                   \\
+			                            & = \frac{\varepsilon}{2} + \frac{\varepsilon}{2}                                              \\
+			                            & = \varepsilon
+		      \end{align*}
+	      \end{proof}
+          \item Given that $(a_n)$ nad $(b_n)$ are Cauchy sequences, use the definition \\ 
+          (an Epsilon argument) to show that $(6a_n-2b_n)$ is also a Cauchy sequence.
+          \begin{proof}
+              Let $\varepsilon > 0$ be given. Since $(a_n)$ is Cauchy $\exists H_a \in \mathbb{R}$ s.t. $\forall n,m \geq H_a$ \\
+              $|a_n-a_m| < \frac{\varepsilon}{12}$ \\
+              Since $(b_n)$ is Cauchy $\exists H_b \in \mathbb{R}$ s.t. \\
+              $|b_n-b_m| < \frac{\varepsilon}{4}$ \\
+              Consider $H = \max(H_a, H_b)$, then $\forall n,m \geq H$
+              \begin{align*}
+                  |(6a_n-2b_n) - (6a_m-2b_n)| &= |6a_n-6a_m - 2b_n + 2b_m| \\
+                  &\leq |6a_n-6a_m| + |-2b_n+2b+m| && \text{(Triangle Inequality)} \\
+                  &= 6|a_n-a_m| + 2|b_n-b_m| \\
+                  &< 6\frac{\varepsilon}{12} + 2\frac{\varepsilon}{4} \\
+                  &= \frac{\varepsilon}{2} + \frac{\varepsilon}{2} \\
+                  &= \varepsilon
+              \end{align*}
+          \end{proof}
+\end{enumerate}
+\end{document}
