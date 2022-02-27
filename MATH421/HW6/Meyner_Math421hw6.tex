@@ -1,0 +1,76 @@
+\documentclass[12pt]{article}
+
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+
+
+\newlength{\strutheight}
+\settoheight{\strutheight}{\strut}
+\newtheorem{theorem}{Theorem}
+\renewcommand\qedsymbol{$\blacksquare$}
+\newcommand\setitemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+
+\geometry{letterpaper,portrait,margin=1in}
+
+
+\title{\large Abstract Algebra Homework 6}
+\author{\large Zachary Meyner}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{enumerate}[label=\textbf{\arabic*}.]
+    \setitemnumber{5}
+    \item Show that the intersection of two normal subgroups is a normal subgroup.
+    \begin{proof}
+        Let $G$ be a group with $X,Y \leq G$. In homeowrk 3 we proved that \\
+        $(X \cap Y) \leq G$. So we only need to prove that $(X \cap Y) \trianglelefteq G$. \\
+        Let $n \in (X \cap Y)$. So $\forall g \in G \ gng^{-1} \in X$ and $gng^{-1} \in Y \ \forall n \in (X \cap Y)$. \\
+        Thus $gng^{-1} \in (X \cap Y)$ so $(X \cap Y) \trianglelefteq G$.
+    \end{proof}
+    \setitemnumber{6}
+    \item If $G$ is abelian, prove that $G/H$ must also be abelian.
+    \begin{proof}
+        Let $G$ be abelian and $G/H = \{gH | g \in G\}$. Let $g_1,g_2 \in G$, then
+        \begin{align*}
+            (g_1H)(g_2H) &= g_1g_2H \\
+            &= g_2g_1H && \text{$G$ is abelian} \\
+            &= (g_2H)(g_1H)
+        \end{align*}
+        Therefore $G/H$ is abelian.
+    \end{proof}
+    \setitemnumber{8}
+    \item If $G$ is cyclic, prove that $G/H$ must also be cyclic.
+    \begin{proof}
+        Let $G$ be cyclic and $G/H = \{gH | g \in G\}$. Because $G$ is cyclic $\left\langle x\right\rangle  = G$. So 
+        $gH = x^nH = {(xH)}^n = \left\langle xH \right\rangle$. Therefore $G/H$ is cyclic. 
+    \end{proof}
+    \setitemnumber{4}
+    \item Let $\varphi: \mathbb{Z} \to \mathbb{Z}$ be given my $\varphi(n) = 7n$. Prove that $\varphi$ is a group homomorphism. Find 
+    the kernal and the image of $\varphi$.
+    \begin{proof}
+        Let $a,b \in \mathbb{Z}$. Then 
+        \begin{align*}
+            \varphi(a+b) &= 7(a+b) \\
+            &= 7a+7b \\
+            &= \varphi(a) + \varphi(b)
+        \end{align*}
+        Therefore $\varphi$ is a homomorphism.
+    \end{proof}
+    $\ker(\varphi) = \{a \in \mathbb{Z} | \varphi(a) = 0\} = {0}$. \\
+    The image of $\varphi$ is $\{7n | n \in \mathbb{Z}\}$.
+\end{enumerate}
+\end{document}
