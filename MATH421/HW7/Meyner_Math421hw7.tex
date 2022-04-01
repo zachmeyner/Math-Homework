@@ -1,0 +1,59 @@
+\documentclass[12pt]{article}
+
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+
+
+\newlength{\strutheight}
+\settoheight{\strutheight}{\strut}
+\newtheorem{theorem}{Theorem}
+\renewcommand\qedsymbol{$\blacksquare$}
+\newcommand\setitemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+
+\geometry{letterpaper,portrait,margin=1in}
+
+
+\title{\large Abstract Algebra Homework 7}
+\author{\large Zachary Meyner}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+    \setitemnumber{2}
+    \item Find all of the abelian groups of order 200 up to isomorphism. 
+    \begin{gather*}
+        |G| = 200 = 5 \cdot 40 = 5^2 \cdot 8 = 5^2 \cdot 2^3 \\
+        \mathbb{Z}_{5^2} \times \mathbb{Z}_{2^3} \\
+        \mathbb{Z}_5 \times \mathbb{Z}_5 \times \mathbb{Z}_{2^3} \\
+        \mathbb{Z}_{5^2} \times \mathbb{Z}_{2^2} \times \mathbb{Z}_2 \\
+        \mathbb{Z}_5 \times \mathbb{Z}_5 \times \mathbb{Z}_{2^2} \times \mathbb{Z}_2 \\
+        \mathbb{Z}_{5^2} \times \mathbb{Z}_{2} \times \mathbb{Z}_2 \times \mathbb{Z}_2 \\
+        \mathbb{Z}_{5} \times \mathbb{Z}_5 \times \mathbb{Z}_{2} \times \mathbb{Z}_2 \times \mathbb{Z}_2
+    \end{gather*}
+
+    \setitemnumber{5}
+    \item Show that the infinite direct product $G = \mathbb{Z}_2 \times \mathbb{Z}_2 \times \cdots$ is not finitely generated.
+    \begin{proof}
+        Every element in $G$ has an order of 2, and $G$ is abelian. The group generated 
+        by this must have an order of at most $2^n$, but $G$ has infinite order. Thus $G$ has to be 
+        infinitely generated.
+    \end{proof}
+\end{enumerate}
+
+
+\end{document}
