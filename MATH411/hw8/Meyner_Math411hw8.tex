@@ -1,0 +1,113 @@
+\documentclass[12pt]{article}
+
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+
+
+\newlength{\strutheight}
+\settoheight{\strutheight}{\strut}
+\newtheorem{theorem}{Theorem}
+\renewcommand\qedsymbol{$\blacksquare$}
+\newcommand\setitemnumber[1]{\setcounter{enumi}{\numexpr#1--1\relax}}
+
+\geometry{letterpaper,portrait,margin=1in}
+
+
+\title{\large Intro to Analysis Homework 8}
+\author{\large Zachary Meyner}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+    \item Suppose $f$ is continuous in $[a,b]$ and $f(c) > 0$ for some $c \in (a,b)$. Then show that 
+    there exists an open interval for which $f(x) >0$ on the interval.
+    \begin{proof}
+        Consider $\varepsilon = \frac{f(x)}{2} > 0$. Since $f$ is continuous at $x=c, \ \exists \delta > 0$ s.t. $\forall x \in [a,b]$ 
+        with $0 < |x-c| < \delta$ with $|f(x) - f(c)| < \varepsilon = \frac{f(c)}{2}$. Consider the interval $(c-\delta, c + \delta)$.
+        If $x \in (c-\delta, c+\delta)$
+        \begin{align*}
+            f(x) &= f(c)-f(c)+f(x) \\
+            &= f(c) - (f(c)+f(x)) \\
+            &\geq f(c) - |f(c)+f(x)| \\
+            &\geq f(c) - \frac{f(c)}{2} \\
+            &= \frac{f(c)}{2} > 0
+        \end{align*}
+    \end{proof}
+    \item Show that $f(x) = x^3-2x^2-3x+1$ has at least one zero on $[-1, 1]$ \\
+    $f(1) = 3$ and $f(-1) = -5$, so by the Location of Roots Theorem $\exists c$ in the domain s.t. 
+    $f(c) = 0$.
+    
+    \item Let $f: \mathbb{R} \to \mathbb{R}$ be continuous function and suppose $f(x) \leq 0$ for all rational numbers. 
+    Prove that $f(x) \leq 0$ for all real numbers.
+    \begin{proof}
+        BMOC, suppose $\exists c \in \mathbb{R}$ s.t. $f(c) > 0$. Then by number 1 there is an open 
+        interval $(a,b)$ for which $f(x) > 0 \ \forall x \in (a,b)$ with $c \in (a,b)$, but $(a,b)$ is a nonempty, 
+        open interval, so $\exists d \in (a,b)$ s.t. $d \in \mathbb{Q}$. Thus $f(d) > 0$, this is a contraction, so $c$ does 
+        not exists.
+    \end{proof}
+
+    \item Consider $f(x) = \begin{cases}
+                                3x^2+2 &x \neq 2 \\
+                                0 &x =2
+                            \end{cases}$.
+    Prove that $f$ is not continuous at $x=2$. \\
+    Consider $(x_n) = 2 + \frac{1}{n}$. Clearly $\lim\limits_{n \to \infty} x_n = 2$. We know $(x_n) \neq 2 \ \forall n$ \\
+    So $f(x_n) = 3(x_n)^2 + 2$, so $\lim\limits_{n \to \infty}f(x_n) = 3(x_n)+2 = 3{(2)}^{2}+2 = 14$.  \\
+    But $f(\lim\limits_{n \to \infty} x_n) = f(2) = 0$. $14 \neq 0$ so this function is not continuous at $x=2$.
+
+    \item Suppose $f,g: \mathbb{R} \to \mathbb{R}$ are both continuous functions. Show that $3f -2g$ is a continuous 
+    function too.
+    \begin{proof}
+        Let $\varepsilon > 0$ be given, and let $c \in \mathbb{R}$. \\
+        Since $f$ is continuous at $c, \ \exists \delta_f >0$ s.t. $\forall x \in \mathbb{R}$ with $0 < |x-a| < \delta_f$ 
+        \[\big|f(x) - f(a)\big| < \frac{\varepsilon}{6}\]
+        Since $g$ is continuous at $c, \ \exists \delta_g >0$ s.t. $\forall x \in \mathbb{R}$ with $0 < |x-a| < \delta_g$ 
+        \[\big|g(x) - g(a)\big| < \frac{\varepsilon}{4}\]
+        Consider $\delta = \min(\delta_f, delta_g)$ \\
+        Then $\forall x \in \mathbb{R}$ with $0 < |x-a| < \delta$
+        \begin{align*}
+            \big|(3f(x)-2g(x)) - (3f(a)-2g(a))\big| &= \big| 3f(x)-3f(a) + 2g(a)+2g(x) \big| \\
+            &\leq 3|f(x) - f(a)| + 2|g(a) - g(x)| \\
+            &< \frac{3\varepsilon}{6} + \frac{2\varepsilon}{4} \\
+            &= \varepsilon 
+        \end{align*}
+    \end{proof}
+
+    \item For each statement, conclude if the statement is true because of Bolzano's Intermediate 
+    Value Theorem
+    \begin{enumerate}
+        \item If $f$ is a function satisfying that $f(0) = 10$ and $f(8) = 2$, then it must be that 
+        $\exists x \in (0, 8)$ satisfying that $f(x) = 5$. \\
+        We cannot conclude that $\exists x \in (0,8)$ satisfying $f(x) = 5$ because the function could be discontinuous.
+
+        \item Suppose revenue can be modeled by a function $R(x)$, where x is measured in 
+        thousands of units for units ranging from 0 to 20,000. Revenue for 2,000 units is 
+        known to be \$4500 and revenue for 3,000 units is known to be \$7200, but at no 
+        point in time was revenue \$5500. We can conclude therefore that the revenue 
+        function is not continuous. \\
+        If $R$ is continuous then $\exists c$ where $R(c) = 5500$.
+
+        \item If $f$ is a continuous function satisfying that $f(20) = 10$ and $f(8) = 2$, then \\ 
+        $\exists x \in (8, 20)$ satisfying $f(x) = 15$. \\
+        We can not make a conclustion on this because the known values for $f(x)$ when 
+        $x \in (8, 20)$ only guarantee that $f(x)$ touches all the values in a range of at least 
+        $(2, 10)$.
+    \end{enumerate}
+\end{enumerate}
+
+
+\end{document}
