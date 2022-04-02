@@ -1,0 +1,94 @@
+\documentclass[12pt]{article}
+
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+\usepackage{faktor}
+
+
+\newlength{\strutheight}
+\settoheight{\strutheight}{\strut}
+\newtheorem{theorem}{Theorem}
+\renewcommand\qedsymbol{$\blacksquare$}
+\newcommand\setitemnumber[1]{\setcounter{enumi}{\numexpr#1--1\relax}}
+
+\geometry{letterpaper,portrait,margin=1in}
+
+
+\title{\large Abstract Algebra Homework 8}
+\author{\large Zachary Meyner}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{enumerate}[label=\textbf{\arabic*}.]
+    \setitemnumber{14}
+    \item If $R$ is a field, show that the only two ideals of $R$ are $\{0\}$ and $R$ itself.
+    \begin{proof}
+        By means of contradiction assume there is an ideal $I$ s.t. $I \neq \{0\}, R$. \\
+        Let $a \in I$, we know that $a \neq 0$, and because $R$ is a field $a$ has an inverse $a^{-1}$, so 
+        $a \cdot a^{-1} = 1 \in I$. Since $1 \in I$ the definiton of an ideal tells us that \\
+        $\forall a \in I$ and $\forall r \in R, \ ar = ra \in I$ so $1 \cdot r \in I \ \forall r \in R$. Thus $I = R$, this is a 
+        contradiction, therefore the only ideals of a field $R$ are $\{0\}$ and $R$.
+    \end{proof}
+    
+    \setitemnumber{15}
+    \item Let $a$ be any element in a ring $R$ with identity. Show that $(-1)a = -a$.
+    \begin{proof}
+        Let $R$ be a unitary ring with multiplicative identity $1$. We know $1 + (-1) = 0 $, 
+        so we know $(1 + (-1))a = 0 \cdot a = 0$. The distributive property tells us \\
+        $1a + (-1)a = a + (-1)a = 0$, and we know that $a + (-a) = 0$, so 
+        \begin{align*}
+            a + (-1)a &= a + (-a) \\
+            (-1)a &= -a
+        \end{align*}
+    \end{proof}
+
+    \setitemnumber{24}
+    \item Let $R$ be an integral domain. Show that if the only ideals in $R$ are $\{0\}$ and $R$ itself, $R$ 
+    must be a field.
+    \begin{proof}
+        Let $R$ be an integral domain with the only ideals being $\{0\}$ and $R$, then $\{0\}$ is 
+        the maximal ideal of $R$. Because there are no other proper ideals, so $\faktor{R}{\{0\}} = R$ is a 
+        field. 
+    \end{proof}
+
+    \setitemnumber{25}
+    \item Let $R$ be a commutative ring. An element $a$ in $R$ is \textbf{\textit{nilpotent}} if $a^n = 0$ for some 
+    positive integer $n$ Show that the set of all nilpotent elements forms an ideal in $R$.
+    \begin{proof}
+        Let $I \subseteq R$ be the set of nilpotent elements in the commutative ring $R$ s.t
+        \[I = \{r \in R \ | \ \exists n \in \mathbb{N}, \ r^n = 0\}\]
+        Subring: \\
+        Nonempty: We know, $0^n = 0 \forall n \in \mathbb{N}$, so $I$ is nonempty. \\
+        Closure -: Let $a,b \in I$ then $\exists n,m \in \mathbb{N}$ s.t. $a^n = b^m = 0$. Consider ${(a-b)}^{n+m}$, 
+        by the binomial theorem ${(a-b)}^{n+m} = \sum\limits_{k=0}^{n+m} \binom{n+m}{k} a^{k}b^{n+m-k}$. If $k \geq n$ 
+        then $a^k = 0$, and if $0 < k < n$ then $b^{n+m-k} = 0$ so ${(a-b)}^{n+m} = 0$, so $(a-b) \in I$. \\
+        Absorption: Let $x \in I$ and $y \in R$. Then $xy = {(xy)}^{n} = x^{n}y^{n} = 0 \cdot y^n = 0$, so the 
+        nilpotent is an ideal of a commutative ring.
+    \end{proof}
+
+    \setitemnumber{35}
+    \item An element $x$ in a ring is called an \textbf{\textit{idempotent}} if $x^2=x$. Prove that the only 
+    idempotents in an integral domain are 0 and 1. Find a ring with a idempotent x not 
+    equal to 0 or 1.
+    \begin{proof}
+        Let $R$ be an integral domain. Let $r \in R$. Consider $r^2=r$. Then we know that 
+        $r^{2}-r = 0$ and by the distributive property $r(r-1) = 0$, so $r = 0,1$. \\
+        Therefore 0 and 1 are the only idempotents of an integral domain.
+    \end{proof}
+    A ring with idempotent not equal to 0 or 1 is $\mathbb{Z}_6$, $3^2 \equiv 3 \mod{6}$
+\end{enumerate}
+\end{document}
