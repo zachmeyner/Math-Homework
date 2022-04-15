@@ -1,0 +1,72 @@
+\documentclass[12pt]{article}
+
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+
+
+\newlength{\strutheight}
+\settoheight{\strutheight}{\strut}
+\newtheorem{theorem}{Theorem}
+\renewcommand\qedsymbol{$\blacksquare$}
+\newcommand\setitemnumber[1]{\setcounter{enumi}{\numexpr#1-- -1\relax}}
+
+\geometry{letterpaper,portrait,margin=1in}
+
+
+\title{\large Abstract Algebra Homework 10}
+\author{\large Zachary Meyner}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{enumerate}[label=\textbf{\arabic*}.]
+    \setitemnumber{5}
+    \item Prove or disprove: If $D$ is an integral domain, then every prime element in $D$ is also 
+    irreducible in $D$.
+    \begin{proof}
+        Let $D$ be an integral domain and let $p \in D$ be prime. Consider $p = ab$ for some 
+        $a,b \in D$. Because $p$ is prime $p|a$ or $p|b$. WLOG assume $p|a$. Then $pn = a$ for some 
+        $n \in D$. Then we have
+        \begin{align*}
+            a &= pn \\
+            &= (ab)n \\
+            &= a(bn)
+        \end{align*}
+        Because $D$ is an integral domain we can use the cancellation law and get $1=bn$. So $b$ 
+        is a unit. Thus $p$ is irreducible.
+    \end{proof}
+
+    \setitemnumber{14}
+    \item Let $D$ be a Euclidean domain with Euclidean valuation $\nu$. If $u$ is a unit in $D$, show 
+    $\nu(u) = \nu(1)$.
+    \begin{proof}
+        Let $D$ be a Euclidean Domain and $u \in D$ be a unit. Since $u$ is a unit we know 
+        $ua = 1 \ \forall a \in D$. Since $D$ is a Euclidean Domain we also know 
+        \[\nu(u) \leq \nu(ua) = \nu(1) \leq \nu(1 \cdot u) = \nu(u)\]
+        And since $\nu(u) \leq \nu(1) \leq \nu(u)$ we know that $\nu(u) = \nu(1)$. 
+    \end{proof}
+
+    \item Let $D$ be a Euclidean Domain with Euclidean valuation $\nu$. If $a$ and $b$ are associates in 
+    $D$, prove that $\nu(a) = \nu(b)$.
+    \begin{proof}
+        Let $D$ be a Euclidean Domain with $a,b \in D$ being associates. We know $\exists u \in D$ 
+        s.t. $a = bu$. Because $D$ is a Euclidean Domain 
+        \[\nu(b) \leq \nu(bu) = \nu(a) \leq \nu(au^{-1}) = \nu(b)\]
+        Since $\nu(b) \leq \nu(a) \leq \nu(b)$ we know that $\nu(a) = \nu(b)$. 
+    \end{proof}
+\end{enumerate}
+
+\end{document}
