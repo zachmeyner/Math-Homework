@@ -1,0 +1,180 @@
+\documentclass[12pt]{article}
+
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+
+
+\newlength{\strutheight}
+\settoheight{\strutheight}{\strut}
+\newtheorem{theorem}{Theorem}
+\renewcommand\qedsymbol{$\blacksquare$}
+\newcommand\setitemnumber[1]{\setcounter{enumi}{\numexpr#1-- -1\relax}}
+
+\geometry{letterpaper,portrait,margin=1in}
+
+
+\title{\large Intro to Analysis Homework 9}
+\author{\large Zachary Meyner}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+    \item Prive that $f(x) = x^3$ is NOT uniformly continuous for all real numbers. \\
+    Let $(x_n) = n$ and $(y_n) = n + \frac{1}{n}$. Then $\lim\limits_{n \to \infty} (x_n-y_n) = \lim\limits_{n \to \infty} \big[n - \big(n + \frac{1}{n} \big) \big]$ and $\varepsilon_{0} = 1$. 
+    \[\lim\limits_{n \to \infty} \bigg[n - \bigg(n + \frac{1}{n} \bigg) \bigg] = \lim\limits_{n \to \infty} \bigg( - \frac{1}{n} \bigg) = 0\]
+    But $f(x_n) = n^3$ and $f(y_n) = {\big(n- \frac{1}{n} \big)}^3 = n^3 + 3n + \frac{3}{n} + \frac{1}{n^{3}}$ 
+    \begin{align*}
+        |f(x_n) - f(y_n)| &= \bigg| n^3 - \bigg( n^3 + 3n + \frac{3}{n} + \frac{1}{n^{3}} \bigg) \bigg| \\
+        &= \bigg| -3n - \frac{3}{n} - \frac{1}{n^{3}} \bigg| \\
+        &= 3n + \frac{3}{n} + \frac{1}{n^{3}} \\
+        &\geq 3n \\
+        &\geq 3(1) \\
+        &= \varepsilon
+    \end{align*}
+
+    \item Prove that $f(x) = \frac{-3x}{x-4}$ is uniformly continuous on $(5, \infty)$.
+    \begin{proof}
+        Let $\varepsilon > 0$ be given. Consider $\delta = \frac{\varepsilon}{12}$ \\
+        Then $\forall x,c \in (5, \infty)$ with $0 < |x-c| < \delta$
+        \begin{align*}
+            |f(x) - f(c)| &= \bigg| \frac{-3x}{x-4} - \frac{-3c}{c-4} \bigg| \\
+            &= \bigg| \frac{-3x}{x-4} + \frac{3c}{c-4} \bigg| \\
+            &= \bigg| \frac{-3xc + 12x + 3xc -12c}{(x-4)(c-4)} \bigg| \\
+            &= \frac{12 |x-c|}{(x-4)(c-4)} \\
+            &< \frac{12\delta}{(x-4)(c-4)} \\
+            &< \frac{12\delta}{(5-4)(5-4)} \\
+            &< 12\delta \\
+            &\leq \varepsilon
+        \end{align*}
+    \end{proof}
+
+    \item Suppose $f$ and $g$ are both uniformly continuous functions on the set $(0, \infty)$. Prove 
+    that $2f + 3g$ is uniformly continuous on $(0, \infty)$.
+    \begin{proof}
+        Let $\varepsilon > 0$ be given. \\
+        Since $f$ is uniformly continuous on $(0, \infty) \ \exists \delta_f s.t. \forall x,c \in (0, \infty)$ with $0 < |x-c| < \delta_f$, 
+        \[\big| f(x) - f(c) \big| < \frac{\varepsilon}{4}\]
+        Since $g$ is uniformly continuous on $(0, \infty) \ \exists \delta_g s.t. \forall x,c \in (0, \infty)$ with $0 < |x-c| < \delta_g$, 
+        \[\big| g(x) - g(c) \big| < \frac{\varepsilon}{6}\]
+        Consider $\delta = \min(\delta_f, \delta_g)$, then $\forall x,c \in (0, \infty)$ with $0 < |x-c| < \delta$
+        \begin{align*}
+            \Big| \big[ 2f(x) + 3g(x) \big] - \big[ 2f(c) + 3g(c) \big] \Big| &= \big|2f(x) - 2f(c) + 3g(x) - 3g(c) \big| \\
+            &\leq 2 \big| f(x) - f(c)| + 3|g(x) - g(c) \big| \\
+            &< \frac{2\varepsilon}{4} + \frac{3\varepsilon}{6} \\
+            &= \frac{\varepsilon}{2} + \frac{\varepsilon}{2} \\
+            &\leq \varepsilon
+        \end{align*}
+    \end{proof}
+
+    \item Prove that $f(x) = \frac{2x}{6x+1}$ is differentiable on the interval $(0, \infty)$ 
+    \[f'(x) = \frac{12x+2-12x}{{(6x+1)}^2} = \frac{2}{{(6x+1)}^2}\]
+    \begin{proof}
+        Let $\varepsilon > 0$ be given and $c \in (0, \infty)$. \\
+        Consider $\delta = \min \Big( \frac{c}{2}, \frac{\varepsilon(3c+1){(6c+1)}^2}{12} \Big)$ \\
+        Then $\forall x \in (0, \infty)$ with $0 < |x-c| < \delta$.
+        \begin{align*}
+            \bigg| \frac{f(x) - f(c)}{x-c} - f'(c) \bigg| &= \Bigg| \frac{\frac{2x}{6x+1} - \frac{2c}{6c+1}}{x-c} - \frac{2}{{(6c+1)}^2} \Bigg| \\
+            &= \Bigg| \frac{\frac{12xc+2x-2xc-2c}{(6x+1)(6c+1)}}{x-c} - \frac{2}{{(6c+1)}^2} \Bigg| \\
+            &= \bigg| \frac{2(x-c)}{(x-c)(6x+1)(6c+1)} - \frac{2}{{(6c+1)}^2} \bigg| \\
+            &= \bigg| \frac{2}{(6x+1)(6c+1)} - \frac{2}{{(6c+1)}^2} \bigg| \\
+            &= \bigg| \frac{12c+2 - 12x - 2}{(6x+1){(6c+1)}^2} \bigg| \\
+            &= \frac{12|x-c|}{(6x+1){(6c+1)}^2} \\
+            &< \frac{12\delta}{(6x+1){(6c+1)}^2} \\
+            &< \frac{12\delta}{(3c+1){(6c+1)}^2} && \text{(Note)}\\
+            &\leq \varepsilon
+        \end{align*}
+
+        Note:
+        \begin{gather*}
+            |x-c| < \frac{c-0}{2} \\
+            -\frac{c}{2} < x-c < \frac{c}{2} \\
+            \frac{c}{2} < x < \frac{3c}{2} \\
+            3c < 6x < 9c \\
+            3c+1 < 6x+1 < 9c+1 \\
+            |6x+1| = 6x+1 > 3c+1
+        \end{gather*}
+    \end{proof}
+
+    \item Prove that $f(x) = \frac{5}{2x-4}$ is differentiable on $(2, \infty)$
+    \[f'(x) = -\frac{10}{{(2x-4)}^2} \]
+    \begin{proof}
+        Let $\varepsilon > 0$ be given, and $c \in (2, \infty)$. \\
+        Consider $\delta = \min \Big( \frac{c-2}{2}, \frac{\varepsilon(c-2){(2c-4)}^2}{10} \Big)$ \\
+        Then $\forall x \in (2, \infty)$ with $0 < |x-c| < \delta$
+        \begin{align*}
+            \bigg| \frac{f(x) - f(c)}{x-c} - f'(c) \bigg| &= \Bigg| \frac{\frac{5}{2x-4}-\frac{5}{2c-4}}{x-c} + \frac{10}{{(2c-4)}^2} \Bigg| \\
+            &= \Bigg| \frac{\frac{10c-20-10x+20}{(2x-4)(2c-4)}}{x-c} + \frac{10}{{(2c-4)}^2} \Bigg| \\
+            &= \bigg| \frac{-10(x-c)}{(2x-4)(2c-4)(x-c)} + \frac{10}{{(2c-4)}^2} \bigg| \\
+            &= \bigg| -\frac{10}{(2x-4)(2c-4)} + \frac{10}{{(2c+4)}^2} \bigg| \\
+            &= \bigg| \frac{10x-40 - 10c+40}{(2x-4){(2c-4)}^2} \bigg| \\
+            &< \frac{10|x-c|}{|2x-4|{(2c-4)}^2} \\
+            &< \frac{10\delta}{|2x-4|{(2c-4)}^2} \\
+            &< \frac{10\delta}{(c-2){(2c-4)}^2} && \text{(Note)}\\
+            &\leq \varepsilon
+        \end{align*}
+
+        Note:
+        \begin{gather*}
+            |x-c| < \frac{c-2}{2} \\
+            \frac{2-c}{2} < x-c < \frac{c-2}{2} \\
+            \frac{c+2}{2} < x < \frac{3c-2}{2} \\
+            c+2 < 2x < 3c-2 \\
+            c-2 < 2x-4 < 3c-6 \\
+            |2x-4| = 2x-4 > c-2
+        \end{gather*}
+    \end{proof}
+
+    \item Let $f(x) = 4x^2 + 3x + 10$. Prove that $f$ is differentiable for (a) $x=2$ and then for (b) 
+    any $c \in \mathbb{R}$.
+    \[f'(x) = 8x+3 \]
+
+    \begin{enumerate}
+        \item \begin{proof}
+            Let $\varepsilon > 0$, consider $\delta = \frac{\varepsilon}{4} $ \\
+            Then $\forall x \in \mathbb{R}$ with $0 < |x-2| < \delta$
+            \begin{align*}
+                \bigg| \frac{f(x)-f(c)}{x-c} - f'(c) \bigg| &= \bigg| \frac{4x^2+3x+10 - 32}{x-2} - 19 \bigg| \\
+                &= \bigg| \frac{4x^2+3x-22}{x-2} -19 \bigg| \\ 
+                &= \bigg| \frac{(x-2)(4x+11)}{x-2} - 19 \bigg| \\
+                &= | 4x+11-19 | \\
+                &= |4x-8| \\
+                &= |4(x-2)| \\
+                &< 4\delta \\
+                &= \varepsilon
+            \end{align*}
+        \end{proof}
+        
+        \item \begin{proof}
+            Let $\varepsilon > 0$ and $c \in \mathbb{R}$. \\
+            Consider $\delta = \frac{\varepsilon}{4}$. \\
+            Then $\forall x \in \mathbb{R}$ with $0 < |x-c| < \delta$
+            \begin{align*}
+                \bigg| \frac{f(x)-f(c)}{x-c} - f'(c) \bigg| &= \bigg| \frac{4x^2+3x+10-4c^2-3c-10}{x-c} - 8c-3 \bigg| \\
+                &= \bigg| \frac{4x^2-4c^2+3x-3c}{x-c} - 8c-3 \bigg| \\
+                &= \bigg| \frac{4(x-c)(x+c) + 3(x-c)}{x-c} - 8c-3 \bigg| \\
+                &= |4x+4c + 3 - 8c - 3| \\
+                &= |4c-4x| \\
+                &= 4|x-c| \\
+                &< 4\delta \\
+                &= \varepsilon
+            \end{align*}
+        \end{proof}
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}
