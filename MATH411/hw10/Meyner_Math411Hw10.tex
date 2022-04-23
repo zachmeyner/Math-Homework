@@ -1,0 +1,87 @@
+\documentclass[12pt]{article}
+
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+
+
+\newlength{\strutheight}
+\settoheight{\strutheight}{\strut}
+\newtheorem{theorem}{Theorem}
+\renewcommand\qedsymbol{$\blacksquare$}
+\newcommand\setitemnumber[1]{\setcounter{enumi}{\numexpr#1-- -1\relax}}
+
+\geometry{letterpaper,portrait,margin=1in}
+
+
+\title{\large Intro to Analysis Homework 10}
+\author{\large Zachary Meyner}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+    \item A number is called a fixed point for a function $f(x)$ if $f(a) = a$. Prove that if $|f'(x)| < 1$ 
+    for all real numbers x, then $f$ has at most one fixed point. [$f$ cont and diff on $\mathbb{R}$]
+    \begin{proof}
+        BMOC assume $\exists a,b, \ a < b$ s.t. $f(a) = a$ and $f(b) = b$. \\
+        Consider $g(x) = f(x)-x$, $g$ cont on $[a, b]$ and diff on $(a,b)$. Also $g(a) = f(a)-a =0$
+        and $g(b) = f(b) - b = 0$. Thus by ROlle's Theorem $\exists c \in (a,b)$ s.t. \\
+        $g'(c) = 0$, $g'(x) = f'(x) - 1$, so $0 = f'(c)-1 \Rightarrow f'(c) = 1$. \\
+        However $-1 < f'(x) < 1 \ \forall x \in \mathbb{R}$. This is a contradiction.
+    \end{proof}
+
+    \item Suppose $f$ and $g$ are continuous on $[a,b]$ and differentiable on $(a,b)$. \\
+    Suppose $f(a)=g(a)$ and suppose $f'(x) < g'(x)$ for all $x \in (a,b)$. \\
+    Prove that $f(b) < g(b)$.
+    \begin{proof}
+        Let $h(x) = f(x) - g(x)$. Because $f$ and $g$ is continuous on $[a,b]$ and differentiable 
+        on $(a,b)$, $h$ is also continuous on $[a,b]$ and differentiable on $(a,b)$. By the Mean Value 
+        Theorem $\exists c \in [a,b]$ s.t. 
+        \[h(b) - h(a) = h'(c)(b-a)\]
+        Since $h(a) = f(a) - g(a) = 0$ and $h'(c) = f'(c) - g'(c) < 0$,
+        \begin{align*}
+            h(b) &= h(a)+h'(c)(b-a) \\
+            &= 0+h'(c)(b-a) \\
+            &<0
+        \end{align*}
+        Thus $h(b) = f(b) - g(b) < 0 \Rightarrow f(b) < g(b)$.
+    \end{proof}
+
+    \item Suppose $f$ is differentiable on $(-\infty, \infty)$, that $f(1) = 20$ and that $f'(x) \geq 3$ \\
+    for $1 \leq x \leq 6$. What is the smallest possible values for $f(6)$?
+    \begin{proof}
+        Because $f$ is differentiable on $(-\infty, \infty)$ we know that $f$ is continuous on $[1,6]$ 
+        and differentiable on $(1,6)$. By the Mean Value Theorem $\exists c \in (1, 6)$ s.t.
+        \begin{align*}
+            &f(6)-f(1) = f'(c)(6-1) \\
+            \Rightarrow &f(6) = 5f'(c) + f(1)
+        \end{align*}
+        Since $f(1) = 20$ we know that $f(6) = 5f'(c) + 20$, and since $f'(c) \geq 3$ we know 
+        $f(6) \geq 5(3) + 20 = 35$. So $f(6)$ has a smallest possible value of $35$.
+    \end{proof}
+
+    \item Prove $e^x \geq x+1$ for all nonnegative real numbers.
+    \begin{proof}
+        Let $f(x) = e^x$, clearly $f$ is continuous and differentiable on $\mathbb{R}$. We know that 
+        $f$ is also continuous on $[0,x]$ and differentiable on $(0,x)$ where $x \in \mathbb{R}^+$. By the Mean 
+        Value Theorem $\exists c \in (0,x)$ s.t. 
+        \[f(x)-f(0) = f'(c)(x-0)\]
+        So $e^{x}-1 = e^c(x)$, and because $c \in (0,x)$ we can say $e^x \geq xe^0+1 = x+1$. \\
+        Thus $e^x \geq x+1$.
+    \end{proof}
+\end{enumerate}
+
+\end{document}
