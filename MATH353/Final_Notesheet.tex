@@ -1,0 +1,199 @@
+\documentclass[12pt]{article}
+
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+\usepackage[mathscr]{euscript}
+\usepackage{setspace}
+
+\newtheoremstyle{lowspace}
+{.3}
+{.3}
+{}
+{}
+{\bfseries}
+{.}
+{.5em}
+{}
+
+\theoremstyle{lowspace} 
+\newtheorem{innercustomthm}{Thm}
+\newenvironment{customthm}[1]
+  {\renewcommand\theinnercustomthm{#1}\innercustomthm}
+  {\endinnercustomthm}
+
+\theoremstyle{lowspace}
+\newtheorem{innercustomdef}{Def}
+\newenvironment{customdef}[1]
+  {\renewcommand\theinnercustomdef{#1}\innercustomdef}
+  {\endinnercustomdef}
+
+\theoremstyle{lowspace}
+\newtheorem{innercustomlemma}{Lemma}
+  \newenvironment{customlemma}[1]
+  {\renewcommand\theinnercustomlemma{#1}\innercustomlemma}
+  {\endinnercustomlemma}
+
+
+\newcommand{\inta}{
+  \mathrm{int}
+}
+
+
+\geometry{letterpaper,portrait,margin=0in}
+
+\begin{document}
+    \begin{customthm}{3.3.9 (Ray Theorem)}
+        Let $l \in \mathscr{L}, A \in l, B \notin l$ If $C \in \overrightarrow{AB}$ 
+        and $C \neq A$, then $C \in H_B(l)$.
+    \end{customthm}
+    \begin{customthm}{3.3.12 (Pasch's Axiom)}
+      $\triangle{ABC}, l \in \mathscr{L}, A,B,C \notin l$. If $l \cap \overline{AB}
+      \neq \emptyset$ then $l \cap \overline{AC} \neq \emptyset$ or $l \cap \overline{BC} \neq \emptyset$.
+    \end{customthm}
+    \begin{customlemma}{3.5.0}
+      Let $A,B \in \mathbb{P}$ distinct. Then $\exists C,D \in \mathbb{P}$ s.t. $A*C*B$ and $A*B*D$.
+    \end{customlemma}
+    \begin{customthm}{3.5.3}
+      $D \in \inta\angle{BAC}$ iff $\overrightarrow{AD} \cap \inta\overline{BC} \neq \emptyset$.
+    \end{customthm}
+    \begin{customthm}{4.3.4}
+      Let $l \in \mathscr{L}, P \in \mathbb{P}$ wiht $P \notin \mathscr{L}$. Let $F$ be the foot of the $\perp$ from $P$ to $l$. If $R \in l, R \neq F$ then $PR > PF$.
+    \end{customthm}
+    \begin{customthm}{4.6.4}
+      If $\square ABCD$ is a convex quadrilateral then $\sigma(\square ABCD) \leq 360$.
+    \end{customthm}
+    \begin{customthm}{4.6.6}
+      Every parallelogram is a convex quadrilateral. 
+    \end{customthm}
+    \begin{customthm}{4.6.8}
+      $\square ABCD$ is convex iff $\overline{AB} \cap \overline{BD} \neq \emptyset$.
+    \end{customthm}
+    \begin{customdef}{EPP}
+      Let $l \in \mathscr{L}, P \in \mathbb{P}\backslash l. \ \exists !m \in \mathscr{L}$ 
+      s.t $P \in m, m \parallel l$.
+    \end{customdef}
+    \begin{customthm}{4.7.3}
+      The following are equivalent to the EPP
+      \begin{enumerate}[noitemsep,nolistsep]
+        \item (Proclus' Axion) If $l \parallel l'$ and $t\neq l$ with $t \cap l \neq \emptyset$ then $t \cap l' \neq \emptyset$.
+        \item If $l,m \in \mathscr{L}$ s.t. $l \parallel m$ and $n \perp l$ then $n \perp m$.
+        \item If $l,m,n,k \in \mathscr{L}$ s.t. $k \parallel l, m \perp k, n \perp l$ then $m=n$ or $m \perp n$.
+        \item (Transitivity) If $l \parallel m, m \parallel n$ then $l \parallel n$ or $l=n$.
+      \end{enumerate}
+    \end{customthm}
+    \begin{customthm}{4.8.10 (Properties of Sacherri quadrilaterals)}
+      Let $\square ABCD$ be a Sacherri quadrilateral
+      \begin{enumerate}[noitemsep,nolistsep]
+        \item $AC = BD$.
+        \item $\angle BCD \cong \angle ACD$
+        \item If $E$ mid $\overline{AB}$ and $F$ mid $\overline{CD}$ then $\overline{EF} \perp \overline{AB}, \overline{CD}$
+        \item $\square ABCD$ is a parallelogram
+        \item $\square ABCD$ is convex
+        \item $\mu(\angle BCD), \mu(\angle ADC) \leq 90$
+      \end{enumerate}
+    \end{customthm}
+    \begin{customthm}{4.8.11 (Properties of Lambert quadrilaterals)}
+      Let $ \square ABCD$ be a lambert quadrilateral with right angles at $\angle A, \angle B, \angle C$.
+      \begin{enumerate}[noitemsep,nolistsep]
+        \item $\square ABCD$ is a parallelogram.
+        \item $\square ABCD$ is a convex quadrilateral.
+        \item $\mu(\angle D) \leq 90$.
+        \item $BC \leq AD$.
+      \end{enumerate}
+    \end{customthm}
+    \begin{customthm}{5.1.10 (Properties of Euclid Geometry)}
+      Let $\square ABCD$ be a parallelogram.
+      \begin{enumerate}[noitemsep,nolistsep]
+        \item $\triangle ABC \cong \triangle CDA$ and $\triangle ABD \cong CBD$
+        \item $\overline{AB} \cong \overline{CD}$ and $\overline{BC} \cong \overline{AD}$
+        \item $\angle DAB \cong \angle BCD$ and $\angle ABC \cong \angle CDA$
+        \item $\overline{AC} \cap \overline{BD} = \{E\}$ where E is the midpoint of $\overline{AC},\overline{BD}$
+      \end{enumerate}
+    \end{customthm}
+    \begin{customthm}{5.2.1 (Parallel Projection Theorem)}
+      Let $l,m \in \mathscr{L}$ be distinct mutually parallel lines. Let $a,b \in \mathscr{L}$ be transversals that cut
+      these lines at $A,B,C$ and $D,E,F$ with $A*B*C$ and $D*E*F$. Then $\frac{AB}{AC} = \frac{DE}{DF}$.
+    \end{customthm}
+    \begin{customlemma}{5.3.0}
+      Let $A,B,C,D \in \mathbb{P}$ be distinct. If $AB >CD$ and $E \in \overrightarrow{AB}$ s.t. $AE = CD$ then $A*E*B$.
+    \end{customlemma}
+    \begin{customthm}{5.3.1 (Fundamental Theorem of Similar Triangles)}
+      If $\triangle ABC \sim \triangle DEF$ then $\frac{AB}{AC} = \frac{DE}{DF}$.
+    \end{customthm}
+    \begin{customthm}{5.4.3}
+      The height of a right triangle is the geomtric mean of the lengths of the projections of the legs. \\
+      $h = \sqrt{(AB)(DB)}$
+    \end{customthm}
+    \begin{customthm}{5.4.4}
+      The length of one leg of a right traingle is the geometric mean of the length of the hypotenuse and the projection of that leg onto the hypotenuse.
+      $b = \sqrt{C(AD)} \ \ a = \sqrt{C(BD)}$
+    \end{customthm}
+    \begin{customthm}{8.1.7 (Tangent Line Theorem)}
+      Let $C(O,r) \in \mathscr{C}, l\in \mathscr{L}, P \in l \cap C(O,r)$. Then $l \cap C(O, r) = \{P\}$ iff $\overleftrightarrow{OP} \perp l$.
+    \end{customthm}
+    \begin{customthm}{8.1.9 (Secant Line Theorem)}
+      Let $C(O,r) \in \mathscr{C}, l \in \mathscr{L}$ be a second line at $\{P, Q\}$. If $m$ is the $\perp$-bisector of $\overline{PQ}$ then $O \in m$.
+    \end{customthm}
+    \begin{customthm}{8.1.11 (Elementary Circular Continuity)}
+      A line cannot get from the inside to the outside of a circle without crossing the circle.
+    \end{customthm}
+    \newpage
+    \begin{customthm}{8.1.16}
+      Let $C(O,r) \in \mathscr{C}, l,m \in \mathscr{L}$ be nonparallel and tangent to the circle at $P,Q$. Let $A \in l \cap m$. Then
+      \begin{enumerate}[noitemsep,nolistsep]
+        \item If $\overrightarrow{AB}$ is the angle bisector of $\angle PAQ$ then $O \in \overrightarrow{AB}$
+        \item $PA = QA$
+        \item $PQ \perp OA$.
+      \end{enumerate}
+    \end{customthm}
+    \begin{customthm}{10.1.6}
+      The composition of two isometries is an isometry and the inverse of an isometry is an isometry.
+    \end{customthm}
+    \begin{customthm}{10.1.7 (Properties of Isometries)}
+      Let T be an isometry then T preserves the following
+      \begin{enumerate}[noitemsep,nolistsep]
+        \item Colinearity
+        \item Betweenness of Points
+        \item Segments
+        \item Lines
+        \item Betweenness of Rays
+        \item Angles
+        \item TrianglesCircles
+      \end{enumerate}
+    \end{customthm}
+    \begin{customthm}{10.2.2 ($\frac{1}{2}$-turn theorem)}
+      Let $l,m \in \mathscr{L}, l \perp m, O \in l \cap m$ and $h_O = \rho_l \circ \rho_m$. If $P \in \mathbb{P}\backslash\{O\}$ then $O$ is 
+      the midpoint of $\overline{Ph_O(P)}$.
+    \end{customthm}
+    \begin{customthm}{10.2.5 (The Rotation Theorem)}
+      Let $R_{AOB}$ be a rotation with center $O$ and angle $\angle AOB$ where $R_{AOB} = \rho_m \circ \rho_l$ where $l = \overleftrightarrow{OA}$ and
+      $m$ containing the angle bisector of $\angle AOB$.
+      \begin{enumerate}[noitemsep,nolistsep]
+        \item If $P = \mathbb{P}\backslash {O}$ and $P' = R_{AOB}(P)$ then $\mu(\angle AOB) = \mu(\angle POP')$
+        \item If $n \in \mathscr{L}$ with $O \in n$ then $\exists r,t \in \mathscr{L}$ s.t. $R_{AOB}=\rho_r \circ \rho_n = \rho_n \circ \rho_t$.
+      \end{enumerate} 
+    \end{customthm}
+    \begin{customthm}{10.2.8 (Translation Theorem)}
+      \begin{enumerate}[noitemsep,nolistsep]
+        \item An isometry T is a translation iff $\exists k,l,m \in \mathscr{L}$ s.t. $l,m \perp k$ and $T=\rho_l \circ \rho_m$.
+        \item Let $T_{AB}=\rho_m \circ \rho_l$ be a translation where $A\neq B, k = \overleftrightarrow{AB}$ If $n \in \mathscr{L}, n \perp k$ Then
+        $\exists r,t \in \mathscr{L}$ s.t. $T_{AB}=\rho_r \circ \rho_n=\rho_n \circ \rho_t$.
+      \end{enumerate}
+    \end{customthm}
+    \begin{customthm}{10.3.2 (Glide Reflection Theorem)}
+      Let $T$ be an isometry. Then $T=G_{AB}$ iff $\exists l,m,n \in \mathscr{L}$ distinct s.t. $T = \rho_l \circ \rho_m \circ \rho_n$.
+    \end{customthm}
+\end{document}
