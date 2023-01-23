@@ -1,0 +1,68 @@
+\documentclass[12pt]{article}
+
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+
+
+\newlength{\strutheight}
+\settoheight{\strutheight}{\strut}
+\newtheorem{theorem}{Theorem}
+\renewcommand\qedsymbol{$\blacksquare$}
+\newcommand\setitemnumber[1]{\setcounter{enumi}{\numexpr#1-- -1\relax}}
+
+\geometry{letterpaper,portrait,margin=1in}
+
+
+\title{\large Historical Roots of Mathematics Homework 1}
+\author{\large Zachary Meyner}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{enumerate}[label=\arabic*.]
+    \setitemnumber{1}
+    \item Write the follwing problems in hieroglyphics and then perform the addition:
+    \begin{enumerate}[label=\alph*.]
+        \item $46+23$ \vspace{50mm}
+        \item $64+28$ \vspace{50mm}
+        \item $4297+1351$ \vspace{50mm}
+    \end{enumerate}
+    \item 
+    \begin{enumerate}[label=\alph*.]
+        \item Show that 
+        \[ \frac{2}{n} = \frac{1}{3n}+\frac{5}{3n} \]
+        hence that $2/n$ can be expressed as a sum of unit fractions whenever $n$ is divisible by 5. \\
+        That is 
+        If $n=5k \ k \in \mathbb{Z}$, then $\displaystyle\frac{2}{n} = \displaystyle\frac{1}{3n} + \displaystyle\frac{1}{3k}$.
+        \begin{proof}
+            Let $n,k \in \mathbb{Z}$ s.t. $n = 5k$. Then
+            \begin{align*}
+                \frac{2}{n} &= \frac{6}{3n} \\
+                &= \frac{1}{3n} + \frac{5}{3n} \\
+                &= \frac{1}{3n} + \frac{5}{3(5k)} \\
+                &= \frac{1}{3n} + \frac{1}{3k}
+            \end{align*}
+        \end{proof}
+        \item Note: $25 = 5(5)$
+        \[\frac{2}{25} = \frac{1}{75} + \frac{1}{15} \]
+        Note: $65 = 5(13)$
+        \[\frac{2}{65} = \frac{1}{195} + \frac{1}{39} \]
+        Note: $85 = 5(17)$
+        \[\frac{2}{85} = \frac{1}{255} + \frac{1}{51} \] 
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}
