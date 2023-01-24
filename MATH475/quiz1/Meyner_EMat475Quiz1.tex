@@ -1,0 +1,96 @@
+\documentclass[12pt]{article}
+
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+
+
+\newlength{\strutheight}
+\settoheight{\strutheight}{\strut}
+\newtheorem{theorem}{Theorem}
+\renewcommand\qedsymbol{$\blacksquare$}
+\newcommand\setitemnumber[1]{\setcounter{enumi}{\numexpr#1-- -1\relax}}
+
+\geometry{letterpaper,portrait,margin=1in}
+
+
+\title{\large Linear Algebra II Quiz 1}
+\author{\large Zachary Meyner}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}[label=\textbf{1.2.13.}]
+    \item Find the general solution for the system whose augmented matrix is:
+    \[
+    \begin{bmatrix}
+        1 & -3 & 0 & -1 & 0 & -2 \\
+        0 & 1 & 0 & 0 & -4 & 1 \\
+        0 & 0 & 0 & 1 & 9 & -4 \\
+        0 & 0 & 0 & 0 & 0 & 0
+    \end{bmatrix}
+    \]
+    \begin{align*}
+        R_1=R_1 + 3R_2 &\Rightarrow 
+        \begin{bmatrix}
+            1 & 0 & 0 & -1 & -12 & 1 \\
+            0 & 1 & 0 & 0 & -4 & 1 \\
+            0 & 0 & 0 & 1 & 9 & -4 \\
+            0 & 0 & 0 & 0 & 0 & 0
+        \end{bmatrix} \\
+        R_1=R_1 + R_3 &\Rightarrow 
+        \begin{bmatrix}
+            1 & 0 & 0 & 0 & -3 & -3 \\
+            0 & 1 & 0 & 0 & -4 & 1 \\
+            0 & 0 & 0 & 1 & 9 & -4 \\
+            0 & 0 & 0 & 0 & 0 & 0
+        \end{bmatrix} \\
+    \end{align*}
+    Thus:
+    \[
+    \begin{cases}
+        x_1 = 3x_5 - 3 \\
+        x_2= 1 + 4x_5 \\
+        x_3 \text{ is free} \\
+        x_4 = -4x_5 - 9 \\
+        x_5 \text{ is free}
+    \end{cases}
+    \]
+\end{enumerate}
+\begin{enumerate}[label=\textbf{1.2.19.}]
+    \item \begin{enumerate}[label=\alph*.]
+        \item Conssitent with a unique solution.
+        \item Inconsistent.
+    \end{enumerate}
+\end{enumerate}
+\begin{enumerate}[label=\textbf{1.2.24}]
+    \item \begin{align*}
+    \begin{bmatrix}
+        1 & 3 & 2 \\
+        3 & h & k
+    \end{bmatrix} &\rightarrow
+    \begin{bmatrix}
+        1 & 3 & 2 \\
+        0 & h-9 & k-6
+    \end{bmatrix}
+\end{align*}
+\begin{enumerate}[label=\alph*.]
+    \item There will be no solution when $h=9$ and $k \neq 6$.
+    \item There will be a unique solution when $h \neq 9$
+    \item There will be infinitely many solutions when $h=9$ and $k=6$.
+\end{enumerate}
+\end{enumerate}
+\end{document}
