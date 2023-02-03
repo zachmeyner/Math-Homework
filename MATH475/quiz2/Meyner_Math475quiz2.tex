@@ -1,0 +1,113 @@
+\documentclass[12pt]{article}
+
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+
+
+\newlength{\strutheight}
+\settoheight{\strutheight}{\strut}
+\newtheorem{theorem}{Theorem}
+\renewcommand\qedsymbol{$\blacksquare$}
+\newcommand\setitemnumber[1]{\setcounter{enumi}{\numexpr#1-- -1\relax}}
+
+\geometry{letterpaper,portrait,margin=1in}
+
+
+\title{\large Linear Algebra II Quiz 2}
+\author{\large Zachary Meyner}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{enumerate}[label=\textbf{\arabic*.}]
+    \setitemnumber{18}
+    \item Do the column of $B$ span $\mathbb{R}^4$? Does the equation $B\mathbf{x}=\mathbf{y}$ have a solution for each $\mathbf{y}$ 
+    in $\mathbb{R}^4$?
+    \[
+        B = \begin{bmatrix}
+            1 & 3 & -2 & 2 \\
+            0 & 1 & 1 & -5 \\
+            1 & 2 & -3 & 7 \\
+            -2 & -8 & 2 & -1
+        \end{bmatrix} \rightarrow \ \begin{bmatrix}
+            1 & 4 & -1 & \frac{1}{2} \\
+            0 & 1 & 1 & \frac{-1}{13} \\
+            0 & 0 & 0 & 1 \\
+            0 & 0 & 0 & 0
+        \end{bmatrix}
+    \]
+    There are only 3 pivots in $B$ so it does not span $\mathbb{R}^4$, thus the equation $B\mathbf{x}=\mathbf{y}$ does 
+    not have a solution for each $\mathbf{y}$ in $\mathbb{R}^4$.
+    \setitemnumber{43}
+    \item Suupse $A$ is a $4 \times 3$ matrix and $\mathbf{b}$ is a vector in $\mathbb{R}^4$ with the property that $A\mathbf{x}=\mathbf{b}$ has 
+    a unique solution. What can you say about the reduced echelon form of $A$? Justify 
+    your answer. \\
+    Since $A\mathbf{x} = \mathbf{b}$ has a unique solution we know that the reduced echelon form of $A\mathbf{x}=\mathbf{b}$ 
+    augmented matrix is
+    \[
+        \begin{bmatrix}
+            1 & 0 & 0 & a \\
+            0 & 1 & 0 & b \\
+            0 & 0 & 1 & c \\
+            0 & 0 & 0 & 0
+        \end{bmatrix}
+    \]
+    where $\mathbf{b} = \begin{bmatrix}
+        a \\ b \\ c \\ d
+    \end{bmatrix}
+    $. Thus we know that the reduced row echelon form of $A$ is 
+    \[
+      \begin{bmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1
+      \end{bmatrix}  
+    \]
+    \setitemnumber{49}
+    \item Determine if the columns of the matrix span $\mathbb{R}^4$.
+    \[
+      \begin{bmatrix}
+        12 & 11 & -6 & -7 & 13 \\
+        -9 & 4 & -8 & 7 & -3 \\
+        -6 & 11 & -7 & 3 & -9 \\
+        4 & -6 & 10 & -5 & 12
+      \end{bmatrix} 
+      \rightarrow \begin{bmatrix}
+        1 & \frac{-7}{12} & \frac{11}{12} & \frac{-3}{4} & \frac{5}{12} \\
+        0 & 1 & \frac{-1}{5} & \frac{-1}{5} & \frac{-13}{15} \\
+        0 & 0 & 1 & \frac{-41}{84} & \frac{23}{18} \\
+        0 & 0 & 0 & 0 & 1
+      \end{bmatrix}
+    \]
+    The echelon form of the matrix has 4 pivot positions, thus the matrix span $\mathbb{R}^4$.
+    \setitemnumber{51}
+    \item Find a column of the matrix in exercise 49 that can be deleted and yet have the 
+    remaining matrix columns still span $\mathbb{R}^4$. \\
+    Further reducing the matrix into reduced echelon form gives 
+    \[
+      \begin{bmatrix}
+        1 & 0 & 0 & \frac{-10}{21}& 0 \\
+        0 & 1 & 0 & \frac{25}{84} & 0\\
+        0 & 0 & 1 & \frac{41}{84} & 0\\
+        0 & 0 & 0 & 0 &  1
+      \end{bmatrix}  
+    \]
+    Since the fourth vector does not give a pivot row it is the only vector in the list that 
+    cannot be made with a linear combination of the other 4 vectors, thus you can 
+    remove one of the first, second, third, or fifth vector and it will still span $\mathbb{R}^4$.
+\end{enumerate}
+
+\end{document}
