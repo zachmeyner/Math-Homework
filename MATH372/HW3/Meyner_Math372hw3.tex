@@ -1,0 +1,112 @@
+\documentclass[12pt]{article}
+
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+\usepackage{tasks}
+
+
+\newlength{\strutheight}
+\settoheight{\strutheight}{\strut}
+\newtheorem{theorem}{Theorem}
+\renewcommand\qedsymbol{$\blacksquare$}
+\newcommand\setitemnumber[1]{\setcounter{enumi}{\numexpr#1-- -1\relax}}
+
+\geometry{letterpaper,portrait,margin=1in}
+
+
+\title{\large Hist Roots Homework 3}
+\author{\large Zachary Meyner}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+    \item Give three numbers that might be represented by the symbols I don't know how to type
+        \begin{enumerate}
+            \item 2, 120, 7200
+            \item 12, 720, 2,592,000
+        \end{enumerate}
+    \item Find a first, second, and third approximation to:
+
+            \begin{tasks} (2)
+            \task$\sqrt{10}$\\
+            One:
+            \begin{gather*}
+                3^2 = 9 < 10, \text{ so} \\
+                3 < \sqrt{10} \\
+                \frac{10}{3} > \sqrt{10}, \text{ so} \\
+                4 < \sqrt{10} < \frac{10}{3}, \text{thus} \\
+                \sqrt{10} \approx \frac{4+\frac{10}{3}}{2}=\frac{22}{6}=3.\overline{6}
+            \end{gather*}
+            Two:
+            \begin{gather*}
+                \frac{22}{6}\cdot\frac{60}{22}=10, \text{ so} \\
+                \sqrt{10} \approx \frac{\frac{22}{6}+\frac{60}{22}}{2}=\frac{211}{66}=3.19\overline{69}
+            \end{gather*}
+            Three:
+            \begin{gather*}
+                \frac{211}{66}\cdot\frac{660}{211}=10, \text{ so} \\
+                \sqrt{10} \approx \frac{\frac{211}{66}+\frac{660}{211}}{2}=3.1624\dots
+            \end{gather*}
+            \task$\sqrt{7}$\\
+            One:
+            \begin{gather*}
+                2^2=4 < 7, \text{ so} \\
+                2 < \sqrt{7} \\
+                \frac{7}{2} > \sqrt{7}, \text{ so} \\
+                2 < \sqrt{7} < \frac{7}{2}, \text{ thus} \\
+                \sqrt{7} \approx \frac{2+\frac{7}{2}}{2}=11/4=2.75
+            \end{gather*}
+            Two:
+            \begin{gather*}
+                \frac{11}{4}\cdot\frac{28}{11}=7, \text{ thus} \\
+                \sqrt{7} \approx \frac{\frac{11}{4}+\frac{28}{11}}{2}=\frac{233}{88}=2.647\overline{72}
+            \end{gather*}
+            Three: 
+            \begin{gather*}
+                \frac{233}{88}\cdot\frac{616}{233}=7, \text{ thus} \\
+                \sqrt{7} \approx \frac{\frac{233}{88}+\frac{616}{233}}{2}=2.64575\dots
+            \end{gather*}
+        \end{tasks}
+        \item skip
+        \item Let $n=2^a3^b5^c$, where $a,b,c\in \mathbb{N}$. Prove that $n$ is sexagesimally regular.
+        \begin{proof}
+            Let $n=2^a3^b5^c$ s.t. $a,b,c\in\mathbb{N}$.
+        \end{proof}
+        \item Write in base-60:
+        \begin{enumerate}
+            \item $\frac{5}{6}$
+            \[
+              \frac{5}{6}=\frac{\frac{5}{6}(60)}{60} = \underline{\frac{50}{60}}
+            \]
+            \item $1\frac{4}{9}$
+            \[
+                \frac{4}{9} = \frac{\frac{4}{9}(60)}{60}=\frac{26}{60}+\frac{\frac{2}{3}}{60}\]
+                \[\frac{26}{60}+\frac{\frac{2}{3}(60)}{60^2}=\frac{26}{60}+\frac{40}{60^2}
+                \]
+                \[\underline{1+\frac{26}{60}+\frac{40}{60^2}}\]
+            \item $86\frac{1}{90}$
+            \[
+                86=1,26 \\
+                \frac{1}{90}=\frac{\frac{1}{90}(60)}{60}=\frac{\frac{2}{3}}{60} \\
+            \]
+            \[\frac{\frac{2}{3}(60)}{60^2}=\frac{40}{60^2}\]
+            \[\underline{1,26+\frac{40}{60^2}}\]
+        \end{enumerate}
+\end{enumerate}
+
+\end{document}
