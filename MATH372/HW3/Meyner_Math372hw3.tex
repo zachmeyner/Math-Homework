@@ -82,10 +82,39 @@
                 \sqrt{7} \approx \frac{\frac{233}{88}+\frac{616}{233}}{2}=2.64575\dots
             \end{gather*}
         \end{tasks}
-        \item skip
+        \pagebreak
+        \item Use the \textbf{Binomial Theorem}
+        \[{(1+x)}^m=1+\sum_{k=1}^{\infty}\binom{m}{k}x^k\] 
+        to prove that
+        \[\sqrt{a^2+b}\approx a+ \frac{b}{2a}-\frac{b^2}{8a^2}\]
+        \begin{proof}
+            Consider ${(a^2+b)}^{\frac{1}{2}}$. Factoring out $a$ we have $a{(1+\frac{b}{a^2})}^{\frac{1}{2}}$. Thus we have
+            \begin{align*}
+                a{\bigg(1+\frac{b}{a^2}\bigg)}^\frac{1}{2}&= a\bigg(1+\sum_{k=1}^{\infty}\binom{\frac{1}{2}}{k}\bigg(\frac{b}{a^2}\bigg)^k\bigg) \\
+                &\approx a\bigg(1+\frac{b}{2a^2}-\frac{b^2}{8a^3}\bigg) \\
+                &=a+\frac{b}{2a}-\frac{b^2}{8a^2}
+            \end{align*}
+        \end{proof}
         \item Let $n=2^a3^b5^c$, where $a,b,c\in \mathbb{N}$. Prove that $n$ is sexagesimally regular.
         \begin{proof}
-            Let $n=2^a3^b5^c$ s.t. $a,b,c\in\mathbb{N}$.
+            Let $n=2^a3^b5^c$ s.t. $a,b,c\in\mathbb{N}$. Then we know that
+            \begin{gather*}
+                n|2^a \\
+                n|3^b \\
+                n|5^c
+            \end{gather*}
+            Thus we can also say,
+            \begin{gather*}
+                n|2^a3^b5^c
+            \end{gather*}
+            WLOG let $a=2m, b=c=m, \ m\in\mathbb{N}$. Then we have 
+            \begin{gather*}
+                n|2^{2m}3^m5^m \\
+                n|{(2^2\cdot 3\cdot 5)}^m \\
+                n|60^m
+            \end{gather*} Thus $nz=60^m,\ z\in\mathbb{N}$, so 
+            \[\frac{1}{n}=\frac{a_{1}60^m+a_{2}60^{m-1}+\cdots+a_m}{60^m}=\frac{a_1}{60}+\frac{a_2}{60^2}\cdots\frac{a_m}{60^m}\]
+            $\therefore n$ is sexagesimally regular.
         \end{proof}
         \item Write in base-60:
         \begin{enumerate}
