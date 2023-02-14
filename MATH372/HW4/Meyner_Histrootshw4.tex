@@ -1,0 +1,132 @@
+\documentclass[12pt]{article}
+
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+
+
+\newlength{\strutheight}
+\settoheight{\strutheight}{\strut}
+\newtheorem{theorem}{Theorem}
+\renewcommand\qedsymbol{$\blacksquare$}
+\newcommand\setitemnumber[1]{\setcounter{enumi}{\numexpr#1-- -1\relax}}
+
+\geometry{letterpaper,portrait,margin=1in}
+
+
+\title{\large Historical Roots of Mathematics Homework 4}
+\author{\large Zachary Meyner}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+    \item The Pythagorean Theorem states that, if $a$ and $b$ are the sides of a right triangle with 
+    hypotenuse $c$, then $a^2+b^2=c^2$: \\
+    Find $a$ if $b=1,59$ and $c=2,49$. 
+    \begin{gather*}
+        c_{10}=169 \\
+        b_{10}=109 \\
+        \sqrt{{(169)}^2-{(109)}^2}=\sqrt{16680}=2\sqrt{4170}
+    \end{gather*}
+    \item Use the Babylonian approximation of $\pi=3$ to calculate
+    \begin{enumerate}
+        \item The circumference of a circle with diameter 20.
+        \begin{gather*}
+            d=20 \\
+            r=10 \\
+            C=2\pi r \\
+            C=2(3)(10)=60
+        \end{gather*}
+        \item The areao fa circle with diameter 20.
+        \begin{gather*}
+            d=20 \\
+            r=10 \\
+            A=\pi r^2 \\
+            A=(3){(10)}^2=300
+        \end{gather*}
+    \end{enumerate}
+    \item Solve the following quadratic equations using the Babylonian method:
+    \begin{enumerate}
+        \item $x^2+4x=21$
+        \begin{gather*}
+            x(x+4)=21 \\
+            x=a-2 \\
+            (a-2)(a+2)=21 \\
+            a^2-4=21 \\
+            a^2=25 \\
+            a=5 \\
+            x=3
+        \end{gather*}
+        \item $x^2-2x=4$
+        \begin{gather*}
+            x^2-2x=4 \\
+            x(x-2)=4 \\
+            x=a+1 \\
+            (a+1)(a-1)=4 \\
+            a^2-1=4 \\
+            a^2=5 \\
+            a=\sqrt5 \\
+            x=sqrt5+1
+        \end{gather*}
+        \item $x^2+x=7$
+        \begin{gather*}
+            x(x+1)=7 \\
+            x=a-\frac{1}{2} \\
+            (a-\frac{1}{2})(a+\frac{1}{2})=7 \\
+            a^2-\frac{1}{4}=7 \\
+            a^2=\frac{29}{4} \\
+            a=\frac{\sqrt{29}}{2} \\
+            x=\frac{\sqrt{29}-1}{2}
+        \end{gather*}
+    \end{enumerate}
+    \item Using the Babylonian method, find two numbers whose difference is 3 and whose 
+    product is 40. 
+    \begin{gather*}
+        x-y=3 \\
+        xy=40 \\
+        y=3+x \\
+        x(x+3)=40 \\
+        x=a-\frac{3}{2} \\
+        (a-\frac{3}{2})(a+\frac{3}{2})=40 \\
+        a^2-\frac{9}{4}=40 \\
+        a^2=\frac{169}{4} \\
+        a=\frac{13}{2} \\
+        x=5 \quad y=8
+    \end{gather*}
+    \item That system we set up in class, solve
+    \begin{equation*}    
+        \begin{cases}
+            \displaystyle\frac{y_2}{2}{(x+30)}-\displaystyle\frac{xy_1}{2}=420 \\
+            y_1-y_2=20 \\
+            \displaystyle\frac{y_1}{x} = \displaystyle\frac{y_1+y_2}{30}
+        \end{cases}    
+        \end{equation*}
+    \begin{gather*}
+        y_2=y_1-20, \text{ then} \\
+        \frac{y_1}{x}=\frac{y_1+y_2}{30}=\frac{2y_1-20}{30}=\frac{y_1-10}{15}, \text{ then} \\
+        \frac{y_2(x+30)}{2}-\frac{xy_1}{2}=\frac{(y_1-20)(x-30)}{2}-\frac{xy_1}{2}=\frac{1}{2}{(y_1x+30y_1-20x-600-y_1x)}=420 \\
+        \implies 15y_1-10x-300=420 \implies 5(3y_1-2x-60)=420 \implies 3y_1-2x-60=90 \\
+        \implies x=\frac{3y_1-144}{2}, \text{ finally} \\
+        \frac{y_1}{x}=\frac{y_1-10}{15} \implies \frac{2y_1}{3y_1-144}=\frac{y_1-10}{15} \implies 2y_1=\frac{3y_1^2-174y_1+1440}{15} \\
+        \implies 30y_1=3y_1^2-174y_1+1440 \implies 3y_1^2-204y_1+1440=0 \\
+        y_1=\frac{204+\sqrt{204^2-4(3)(1440)}}{6} \implies y_1=60\\
+        y_2=60-20=40 \\
+        x=\frac{3(60)-144}{2}=18
+    \end{gather*}
+    Thus, $x-18, y_1=60, y_2=40$
+\end{enumerate}
+
+\end{document}
