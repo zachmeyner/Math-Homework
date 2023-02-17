@@ -1,0 +1,88 @@
+\documentclass[12pt]{article}
+
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+
+
+\newlength{\strutheight}
+\settoheight{\strutheight}{\strut}
+\newtheorem{theorem}{Theorem}
+\renewcommand\qedsymbol{$\blacksquare$}
+\newcommand\setitemnumber[1]{\setcounter{enumi}{\numexpr#1-- -1\relax}}
+
+\geometry{letterpaper,portrait,margin=1in}
+
+
+\title{\large Linear Algebra II Quiz 3}
+\author{\large Zachary Meyner}
+\date{}
+
+\begin{document}
+\maketitle
+    \begin{enumerate}
+        \item Assume $A$ is an $m \times n$ matrix and $CA=I_n$ the $n \times n$ identity matrix. Show that the 
+        equation $Ax=0$ has only the trivial solution. Explain why the matrix $A$ can not have 
+        more columns than rows.
+        \begin{proof}
+            Let $A$ be an $m \times n$ matrix s.t. $CA=I_n$ where $I_n$ is the $n \times n$ identity matrix. 
+            Consider the equation $Ax=0$
+            \begin{align*}
+                Ax&=0 \\
+                CAx&=C0 \\
+                (CA)x&=C0 && \text{(Associative Property)} \\
+                I_{n}x &= 0 \\
+                x&=0
+            \end{align*}
+            Thus $Ax=0$ can only have the trivial solution.
+        \end{proof}
+        If $A$ had more columns than rows then the columns of $A$ would be be linearly dependent, 
+        thus $Ax=0$ wuold have a nontrivial solution.
+        \item Assume $A$ is an $m \times n$ matrix nad $AD=I_m$ the $m \times m$ identity matrix. Show that for
+        any $b \in \mathbb{R}^m$, the equation $Ax=b$ has a solution. Try explaining why the matrix $A$
+        can not have more rows than columns.
+        \begin{proof}
+            Let $A$ be an $m \times n$ matrix s.t. $AD=I_m$ where $I_m$ is the $m \times m$ identity 
+            matrix. Consider $A(Db)$ with $b \in \mathbb{R}^m$ then
+            \begin{align*}
+                A(Db) &= (AD)b  && \text{(Associative Property)}\\
+                &= I_{m}b \\
+                &= b
+            \end{align*}
+            Thus $x=Db$ is a solution $Ax=b$.
+        \end{proof}
+        Since $Ax=b$ has a sultion $\forall b \in \mathbb{R}^m$ A has a pivot in every row. Since each column 
+        has to have a pivot there cannot be more rows than columns.
+        \item Assume $A$ is an $m \times n$ matrix and there exists $n \times m$ matrices $C$ and $D$ such that
+        $CA=I_n$ and $AD=I_m$. Prove that $m=n$ and $C=D$.
+        \begin{proof}
+            Let the matrices $A$ being $m \times n$, and $C,D$ being $n \times m$ s.t. $CA=I_n$ and 
+            $AD=I_m$. Then by problem 1 since $CA=I_n$ we know that $m \geq n$ and by problem 2 
+            since $AD=I_m$ we know that $n \geq m$. Thus $m=n$. Consider the product $CAD$, then
+            \begin{align*}
+                CAD &= (CA)D && \text{(Associative Property)} \\
+                &=I_{n}D \\
+                &=D
+            \end{align*} But we can also do this as
+            \begin{align*}
+                CAD &= C(AD) && \text{(Associative Property)} \\
+                &=CI_m \\
+                &=C
+            \end{align*}
+            $\therefore C=D$.
+        \end{proof}
+    \end{enumerate}
+
+\end{document}
