@@ -1,0 +1,64 @@
+\documentclass[12pt]{article}
+
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+
+
+\newlength{\strutheight}
+\settoheight{\strutheight}{\strut}
+\newtheorem{theorem}{Theorem}
+\renewcommand\qedsymbol{$\blacksquare$}
+\newcommand\setitemnumber[1]{\setcounter{enumi}{\numexpr#1-- -1\relax}}
+
+\geometry{letterpaper,portrait,margin=1in}
+
+
+\title{\large Linear Algebra II Project 1}
+\author{\large Zachary Meyner}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+    \item Confirm equation (1) and (2)
+    \begin{gather}
+        5I_1+4I_1+10I_1-10I_2=20+9 \Leftrightarrow 19I_1-10I_2=29 \\
+        -10I_1+10I_1+10I_1+10_3=-9 \Leftrightarrow -10I_1+15I_2=-9
+    \end{gather}
+    \item \[
+        \begin{bmatrix}
+            19 & -10 & 29 \\
+            -10 & 15 & -9
+        \end{bmatrix} \rightarrow 
+        \begin{bmatrix}
+            1 & 0 & \displaystyle\frac{69}{37} \\
+            0 & 1 & \displaystyle\frac{119}{185}
+        \end{bmatrix}
+    \]
+    Thus $I_1=\displaystyle\frac{69}{37}, I_2=\displaystyle\frac{119}{185}$
+    \item Find the loop currents for the network. What is the current in the branch between A 
+    and B\@? What is the current in the branches between B and E\@? \\
+    A and B is $I_9-I_{12}=1.8619-(-2.8696)=4.7315$ in the direction of $I_9$. \\
+    B and E is $I_{13}-I_{12}-I_{14}=(-1.7319)-(-2.8696)-(-0.3478)=1.4885$ in the direction 
+    of $I_{13}$. 
+    \item Suppose each power source in this cirtuit were replaced by a 9 volt battery. How do 
+    the loop currents change? \\
+    Many of the loop currents will increase since a lot of the loop currents have a lot less 
+    voltage going across them, meaning more current will need to be pushed through to 
+    make up for Kirchoff's law.
+\end{enumerate}
+
+\end{document}
