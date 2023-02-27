@@ -15,6 +15,7 @@
 \usepackage{wrapfig}
 \usepackage{adjustbox}
 \usepackage{enumitem}
+\usepackage{fontspec,unicode-math}
 
 
 \newlength{\strutheight}
@@ -30,7 +31,17 @@
 \author{\large Zachary Meyner}
 \date{}
 
+\setmainfont{STIXTwoText}[
+    Extension =.otf,
+    UprightFont =*-Regular,
+    ItalicFont =*-Italic,
+    BoldFont =*-Bold,
+    BoldItalicFont = *-BoldItalic
+]
+\setmathfont{STIXTwoMath-Regular.otf}
+
 \begin{document}
 \maketitle
+
 
 \end{document}
